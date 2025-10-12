@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!--meta-->
-    <meta name="description" content="Quiety creative Saas, software technology, Saas agency & business Bootstrap 5 Html template. It is best and famous software company and Saas website template.">
+    <meta name="description" content="Gateway Automation ltd provides cutting-edge automation, security, and smart technology solutions for your businesses. Experience innovation, reliability, and modern automation with us.">
     <meta name="author" content="ThemeTags">
 
     <!--favicon icon-->
