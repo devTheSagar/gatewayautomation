@@ -740,7 +740,7 @@
                                                                     <div class="dropdown-menu dropdown-menu-start">
                                                                         <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i> Edit</a>
                                                                         <a class="dropdown-item" href="#"><i class="fe fe-info me-2"></i> Info</a>
-                                                                    </div>
+                                                                    </div> 
                                                                 </div>
                                                             </td>
                                                         </tr>
