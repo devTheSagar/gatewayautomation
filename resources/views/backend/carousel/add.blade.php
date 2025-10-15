@@ -37,26 +37,30 @@
                             <h3 class="card-title">Carousel form</h3>
                         </div>
                         <div class="card-body">
-                            <!-- image  -->
-                            <div class="row mb-4">
-                                <label for="image" class="form-label">Upload carousel image <span class="text-danger">*</span></label>
-                                <div class="col-sm-12 col-md-4">
-                                    <input id="image" type="file" class="dropify" data-height="200" />
+                            <form action="{{ route('admin.store.carousel') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <!-- image  -->
+                                <div class="row mb-4">
+                                    <label for="carousel_image" class="form-label">Upload carousel image <span class="text-danger">*</span></label>
+                                    <div class="col-sm-12 col-md-4">
+                                        <input id="carousel_image" name="carousel_image" type="file" class="dropify" data-height="200" />
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- heading  -->
-                            <div class="form-group">
-                                <label for="textarea" class="form-label">Carousel heading</label>
-                                <textarea class="form-control" maxlength="225" id="textarea" rows="3"></textarea>
-                            </div>
-                            <!-- link  -->
-                            <div class="form-group">
-                                <label for="textarea" class="form-label">Learn more link</label>
-                                <textarea class="form-control" maxlength="225" id="textarea" rows="3"></textarea>
-                            </div>
+                                <!-- heading  -->
+                                <div class="form-group">
+                                    <label for="carousel_heading" class="form-label">Carousel heading</label>
+                                    <textarea class="form-control" name="carousel_heading" maxlength="225" id="carousel_heading" rows="3"></textarea>
+                                </div>
+                                <!-- link  -->
+                                <div class="form-group">
+                                    <label for="learn_more_link" class="form-label">Learn more link</label>
+                                    <textarea class="form-control" name="learn_more_link" maxlength="225" id="learn_more_link" rows="3"></textarea>
+                                </div>
 
-                            <a href="javascript:void(0)" class="btn btn-primary w-50">Save</a>
+                                <!-- submit button -->
+                                <button type="submit" class="btn btn-primary w-50 mt-3">Save</button>
 
+                            </form>
                         </div>
                         
                     </div>

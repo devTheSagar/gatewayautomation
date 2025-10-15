@@ -49,142 +49,44 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <img src="" alt="carousel image">
-                                            </td>
-                                            <td>Carousel heading</td>
-                                            <td><a href="#">https://gatewayautomations.com/</a></td>
-                                            <td class="text-center">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-sm dropdown-toggle bg-success text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Active
+                                        @foreach ($carousels as $carousel)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>
+                                                    <img src="{{ asset($carousel->carousel_image) }}" alt="carousel image" height="50px" width="50px" style="border-radius: 50%; border:1px solid rgb(206, 206, 206)">
+                                                </td>
+                                                {{-- <td>{{ $carousel->carousel_heading }}</td> --}}
+                                                <td>{{ Str::limit($carousel->carousel_heading, 20, '...') }}</td>
+                                                <td><a href="{{ $carousel->learn_more_link }}">{{ Str::limit($carousel->learn_more_link, 20, '...') }}</a></td>
+                                                <td class="text-center">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm dropdown-toggle bg-success text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Active
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a class="dropdown-item text-success" href="#">Active</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item text-danger" href="#">Inactive</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
+                                                        <i class="fa-solid fa-eye"></i>
                                                     </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item text-success" href="#">Active</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-danger" href="#">Inactive</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <img src="" alt="carousel image">
-                                            </td>
-                                            <td>Carousel heading</td>
-                                            <td><a href="#">https://gatewayautomations.com/</a></td>
-                                            <td class="text-center">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-sm dropdown-toggle bg-success text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Active
+                                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
                                                     </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item text-success" href="#">Active</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-danger" href="#">Inactive</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <img src="" alt="carousel image">
-                                            </td>
-                                            <td>Carousel heading</td>
-                                            <td><a href="#">https://gatewayautomations.com/</a></td>
-                                            <td class="text-center">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-sm dropdown-toggle bg-success text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Active
+                                                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                        <i class="fa-solid fa-trash"></i>
                                                     </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item text-success" href="#">Active</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-danger" href="#">Inactive</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <img src="" alt="carousel image">
-                                            </td>
-                                            <td>Carousel heading</td>
-                                            <td><a href="#">https://gatewayautomations.com/</a></td>
-                                            <td class="text-center">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-sm dropdown-toggle bg-success text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Active
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item text-success" href="#">Active</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-danger" href="#">Inactive</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>
