@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\ClientController;
@@ -87,4 +88,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::delete('/admin/messages/bulk-delete', [MessageController::class, 'bulkDestroy'])
     ->name('admin.bulk.delete.messages');
 
+
+    Route::get('/admin/carousel/add', [CarouselController::class, 'add'])->name('admin.add.carousel');
+    Route::get('/admin/carousel/index', [CarouselController::class, 'index'])->name('admin.all.carousel');
 });
