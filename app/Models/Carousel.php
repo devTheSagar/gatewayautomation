@@ -3,10 +3,54 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Carousel extends Model
 {
     private static $carousel, $image, $imageName, $directory, $imageUrl;
+
+
+
+
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Automatically generate slug when creating
+        static::creating(function ($carousel) {
+            $carousel->slug = self::generateUniqueSlug($carousel->carousel_heading);
+        });
+
+        // Optionally regenerate slug when updating (if heading changes)
+        static::updating(function ($carousel) {
+            if ($carousel->isDirty('carousel_heading')) {
+                $carousel->slug = self::generateUniqueSlug($carousel->carousel_heading);
+            }
+        });
+    }
+
+    private static function generateUniqueSlug($heading)
+    {
+        $baseSlug = Str::slug($heading);
+        $slug = $baseSlug;
+        $count = 1;
+
+        // Ensure slug is unique
+        while (self::where('slug', $slug)->exists()) {
+            $slug = "{$baseSlug}-{$count}";
+            $count++;
+        }
+
+        return $slug;
+    }
+
+
+
+
+
+
+
 
     // for image storage 
     public static function imageUpload($request){

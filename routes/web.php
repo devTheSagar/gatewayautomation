@@ -94,5 +94,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/carousel/add', [CarouselController::class, 'store'])->name('admin.store.carousel');
     // route for change status 
     Route::post('/admin/carousel/status/{id}', [CarouselController::class, 'changeStatus'])->name('admin.carousel.changeStatus');
+    // for slug 
+    Route::get('/carousel/{slug}', [CarouselController::class, 'show'])->name('carousel.show');
 
 });
