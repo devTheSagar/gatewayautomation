@@ -77,4 +77,7 @@ class Carousel extends Model
         self::$carousel->save();
     }
 
+    // for show specific carousel 
+    // public static function 
+
 }

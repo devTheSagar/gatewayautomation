@@ -11,6 +11,7 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\PageController;
 use App\Http\Controllers\frontend\PaymentController;
 use App\Http\Controllers\frontend\ServiceController;
+use App\Models\Carousel;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -96,5 +97,5 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/carousel/status/{id}', [CarouselController::class, 'changeStatus'])->name('admin.carousel.changeStatus');
     // for slug 
     Route::get('/carousel/{slug}', [CarouselController::class, 'show'])->name('carousel.show');
-
+    Route::get('/admin/carousel/view/{slug}', [CarouselController::class, 'view'])->name('admin.view.carousel');
 });

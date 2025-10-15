@@ -9,10 +9,12 @@ use SweetAlert2\Laravel\Swal;
 
 class CarouselController extends Controller
 {
+    // show carousel form 
     public static function add(){
         return view('backend.carousel.add');
     }
 
+    // add carousel 
     public static function store(Request $request){
         Carousel::addCarousel($request);
         Swal::success([
@@ -22,13 +24,13 @@ class CarouselController extends Controller
         return back();
     }
 
+    // all carousels 
     public static function index(){
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         return view('backend.carousel.index', [
             'carousels' => $carousels
         ]);
     }
-
 
     // store active status to db 
     public function changeStatus(Request $request, $id){
@@ -40,6 +42,13 @@ class CarouselController extends Controller
             'success' => true,
             'message' => 'Status updated successfully.',
             'status' => $carousel->status
+        ]);
+    }
+
+    public static function view($slug){
+        $carousel = Carousel::where('slug', $slug)->firstOrFail();
+        return view('backend.carousel.view', [
+            'carousel' => $carousel
         ]);
     }
 
