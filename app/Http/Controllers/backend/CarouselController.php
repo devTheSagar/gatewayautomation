@@ -28,4 +28,19 @@ class CarouselController extends Controller
             'carousels' => $carousels
         ]);
     }
+
+
+    // store active status to db 
+    public function changeStatus(Request $request, $id){
+        $carousel = Carousel::findOrFail($id);
+        $carousel->status = $request->status;  // 1 or 0
+        $carousel->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Status updated successfully.',
+            'status' => $carousel->status
+        ]);
+    }
+
 }

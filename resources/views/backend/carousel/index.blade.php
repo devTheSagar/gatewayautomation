@@ -57,22 +57,25 @@
                                                 </td>
                                                 {{-- <td>{{ $carousel->carousel_heading }}</td> --}}
                                                 <td>{{ Str::limit($carousel->carousel_heading, 20, '...') }}</td>
-                                                <td><a href="{{ $carousel->learn_more_link }}">{{ Str::limit($carousel->learn_more_link, 20, '...') }}</a></td>
+                                                <td><a href="{{ $carousel->learn_more_link }}" target="_blank">{{ Str::limit($carousel->learn_more_link, 20, '...') }}</a></td>
+
+                                                {{-- active stataus  --}}
                                                 <td class="text-center">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-sm dropdown-toggle bg-success text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            Active
+                                                        <button class="btn btn-sm dropdown-toggle {{ $carousel->status == 1 ? 'bg-success' : 'bg-danger' }} text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            {{ $carousel->status == 1 ? 'Active' : 'Inactive' }}
                                                         </button>
                                                         <ul class="dropdown-menu">
                                                             <li>
-                                                                <a class="dropdown-item text-success" href="#">Active</a>
+                                                                <a class="dropdown-item text-success change-status" href="javascript:void(0)" data-id="{{ $carousel->id }}" data-status="1">Active</a>
                                                             </li>
                                                             <li>
-                                                                <a class="dropdown-item text-danger" href="#">Inactive</a>
+                                                                <a class="dropdown-item text-danger change-status"  href="javascript:void(0)" data-id="{{ $carousel->id }}" data-status="0">Inactive</a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </td>
+
                                                 <td class="text-center">
                                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
                                                         <i class="fa-solid fa-eye"></i>

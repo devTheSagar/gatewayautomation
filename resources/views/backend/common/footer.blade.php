@@ -593,23 +593,40 @@
 
 
         <!-- ACTIVE INACTIVE STATUS SELECT  -->
-        <script>
-            document.querySelectorAll('.dropdown-item').forEach(item => {
-                item.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const button = this.closest('.dropdown').querySelector('.dropdown-toggle');
-                    button.textContent = this.textContent;
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				document.querySelectorAll('.change-status').forEach(button => {
+					button.addEventListener('click', function (event) {
+						event.preventDefault(); // prevent default link action
+						const id = this.getAttribute('data-id');
+						const status = this.getAttribute('data-status');
+						const dropdown = this.closest('.dropdown'); // reference to the parent dropdown
+						const btn = dropdown.querySelector('button'); // the button to update
 
-                    if (this.textContent.trim() === 'Active') {
-                        button.classList.remove('bg-danger');
-                        button.classList.add('bg-success');
-                    } else {
-                        button.classList.remove('bg-success');
-                        button.classList.add('bg-danger');
-                    }
-                });
-            });
-        </script>
+						fetch(`{{ url('/admin/carousel/status') }}/${id}`, {
+							method: 'POST',
+							headers: {
+								'X-CSRF-TOKEN': '{{ csrf_token() }}',
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({ status: status })
+						})
+						.then(res => res.json())
+						.then(data => {
+							if (data.success) {
+								// Update button color and text
+								btn.classList.remove('bg-success', 'bg-danger');
+								btn.classList.add(data.status == 1 ? 'bg-success' : 'bg-danger');
+								btn.textContent = data.status == 1 ? 'Active' : 'Inactive';
+							}
+						})
+						.catch(err => console.error(err));
+					});
+				});
+			});
+		</script>
+
+
 
         <!-- ABOUT US PAGE ER MULTIPLE CARD ADD ER JONNO  -->
         <script>
