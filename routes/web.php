@@ -96,8 +96,10 @@ Route::middleware('auth:admin')->group(function () {
     // route for change status 
     Route::post('/admin/carousel/status/{id}', [CarouselController::class, 'changeStatus'])->name('admin.carousel.changeStatus');
     // for slug 
-    Route::get('/carousel/{slug}', [CarouselController::class, 'show'])->name('carousel.show');
-    Route::get('/admin/carousel/view/{slug}', [CarouselController::class, 'view'])->name('admin.view.carousel');
+    // Route::get('/carousel/{slug}', [CarouselController::class, 'show'])->name('carousel.show');
+    // Route::get('/admin/carousel/view/{slug}', [CarouselController::class, 'view'])->name('admin.view.carousel');
+    Route::get('/admin/carousel/view/{identifier}', [CarouselController::class, 'show'])->name('admin.view.carousel');
+
     // edit id dhore na kore slug diye korle carousel_heading change korle 404 error ashe karon slug heading thekei ashe tai edit id diye kora holo 
     Route::get('/admin/carousel/edit/{id}', [CarouselController::class, 'edit'])->name('admin.edit.carousel');
     Route::put('/admin/carousel/update/{id}', [CarouselController::class, 'update'])->name('admin.update.carousel');

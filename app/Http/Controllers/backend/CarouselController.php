@@ -51,12 +51,14 @@ class CarouselController extends Controller
         ]);
     }
 
-    public static function view($slug){
-        $carousel = Carousel::where('slug', $slug)->firstOrFail();
-        return view('backend.carousel.view', [
-            'carousel' => $carousel
-        ]);
+    public function show($identifier){
+        $carousel = Carousel::where('slug', $identifier)
+                            ->orWhere('id', $identifier)
+                            ->firstOrFail();
+
+        return view('backend.carousel.view', compact('carousel'));
     }
+
 
     // for see the edit form with specific data 
     public static function edit($id){

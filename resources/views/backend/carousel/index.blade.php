@@ -34,6 +34,9 @@
                     <div class="card">
                         <div class="card-header border-bottom">
                             <h3 class="card-title">All Messages</h3>
+                            <a href="{{ route('admin.add.carousel') }}" class="btn ms-3 btn-primary">
+                                <i class="fa-solid fa-plus"></i> Add Carousel
+                            </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -77,9 +80,10 @@
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <a href="{{ $carousel->slug ? route('admin.view.carousel', $carousel->slug) : '#' }}" class="btn btn-outline-primary" title="Show">
+                                                    <a href="{{ route('admin.view.carousel', $carousel->slug ?: $carousel->id) }}" class="btn btn-outline-primary" title="Show">
                                                         <i class="fa-solid fa-eye"></i>
                                                     </a>
+
                                                     <a href="{{  route('admin.edit.carousel', $carousel->id) }}" class="btn btn-outline-secondary" title="Edit">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
