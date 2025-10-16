@@ -77,10 +77,9 @@
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <a href="{{ route('admin.view.carousel', $carousel->slug) }}" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top"  title="Show">
+                                                    <a href="{{ $carousel->slug ? route('admin.view.carousel', $carousel->slug) : '#' }}" class="btn btn-outline-primary" title="Show">
                                                         <i class="fa-solid fa-eye"></i>
                                                     </a>
-
                                                     <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </button>

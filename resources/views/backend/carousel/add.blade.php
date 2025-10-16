@@ -44,17 +44,26 @@
                                     <label for="carousel_image" class="form-label">Upload carousel image <span class="text-danger">*</span></label>
                                     <div class="col-sm-12 col-md-4">
                                         <input id="carousel_image" name="carousel_image" type="file" class="dropify" data-height="200" />
+                                        @error('carousel_image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <!-- heading  -->
                                 <div class="form-group">
                                     <label for="carousel_heading" class="form-label">Carousel heading</label>
-                                    <textarea class="form-control" name="carousel_heading" maxlength="225" id="carousel_heading" rows="3"></textarea>
+                                    <textarea class="form-control @error('carousel_heading') is-invalid @enderror" name="carousel_heading" maxlength="2000" id="carousel_heading" rows="3">{{ old('carousel_heading') }}</textarea>
+                                    @error('carousel_heading')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <!-- link  -->
                                 <div class="form-group">
                                     <label for="learn_more_link" class="form-label">Learn more link</label>
-                                    <textarea class="form-control" name="learn_more_link" maxlength="225" id="learn_more_link" rows="3"></textarea>
+                                    <textarea class="form-control @error('learn_more_link') is-invalid @enderror" name="learn_more_link" maxlength="2000" id="learn_more_link" rows="3">{{ old('learn_more_link') }}</textarea>
+                                    @error('learn_more_link')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
                                 <!-- submit button -->

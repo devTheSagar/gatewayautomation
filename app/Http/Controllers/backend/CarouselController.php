@@ -16,6 +16,12 @@ class CarouselController extends Controller
 
     // add carousel 
     public static function store(Request $request){
+        $request->validate([
+            'carousel_image'    => 'required|mimes:png,jpg,jpeg',
+            'carousel_heading'  => 'nullable|string|max:2000',
+            'learn_more_link'   => 'nullable|url'
+        ]);
+
         Carousel::addCarousel($request);
         Swal::success([
             'title' => 'Carousel added successfully.',

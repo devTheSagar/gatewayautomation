@@ -31,10 +31,10 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
-                        <div class="card-header border-bottom d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Carousel Information</h3>
+                        <div class="card-header border-bottom d-flex justify-content-start align-items-center">
+                            <h3 class="card-title me-3">Carousel Information</h3>
                             <a href="{{ route('admin.all.carousel') }}" class="btn btn-sm btn-primary">
-                                <i class="fa fa-arrow-left"></i> Back
+                                <i class="fa fa-arrow-left"></i> Go Back
                             </a>
                         </div>
                         <div class="card-body">
@@ -72,13 +72,16 @@
                                 </tr>
                                 <tr>
                                     <th>Created At</th>
-                                    <td>{{ $carousel->created_at->format('d M Y, h:i A') }}</td>
+                                    <td>{{ $carousel->created_at->timezone('Asia/Dhaka')->format('d M Y, h:i A') }}</td>
                                 </tr>
                                 <tr>
                                     <th>Updated At</th>
-                                    <td>{{ $carousel->updated_at->format('d M Y, h:i A') }}</td>
+                                    <td>{{ $carousel->updated_at->timezone('Asia/Dhaka')->format('d M Y, h:i A') }}</td>
                                 </tr>
                             </table>
+                            <a href="{{ route('admin.all.carousel') }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-arrow-left"></i> Go Back
+                            </a>
                         </div>
                     </div>
                 </div>
