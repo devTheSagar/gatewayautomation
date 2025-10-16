@@ -80,12 +80,16 @@
                                                     <a href="{{ $carousel->slug ? route('admin.view.carousel', $carousel->slug) : '#' }}" class="btn btn-outline-primary" title="Show">
                                                         <i class="fa-solid fa-eye"></i>
                                                     </a>
-                                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                    <a href="{{  route('admin.edit.carousel', $carousel->id) }}" class="btn btn-outline-secondary" title="Edit">
                                                         <i class="fa-solid fa-pen-to-square"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                        <i class="fa-solid fa-trash"></i>
-                                                    </button>
+                                                    </a>
+                                                    <form action="{{ route('admin.delete.carousel', $carousel->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-outline-danger" title="Delete" onclick="return confirm('Are you sure you want to delete this carousel?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

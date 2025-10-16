@@ -77,7 +77,36 @@ class Carousel extends Model
         self::$carousel->save();
     }
 
-    // for show specific carousel 
-    // public static function 
+    // for update carousel
+    public static function updateCarousel($request, $id){
+        self::$carousel = Carousel::findOrFail($id);
+
+        // Update image if a new file is uploaded
+        if ($request->hasFile('carousel_image')) {
+            if(self::$carousel->carousel_image !=='uploads/backend/carousel-images/default_carousel_image.jpg' && file_exists(self::$carousel->carousel_image)){
+                unlink(self::$carousel->carousel_image);
+            }
+            self::$carousel->carousel_image = self::imageUpload($request); // your existing imageUpload method
+        }
+
+        // Update other fields
+        self::$carousel->carousel_heading = $request->carousel_heading;
+        self::$carousel->learn_more_link  = $request->learn_more_link;
+        // self::$carousel->status           = $request->status ?? $carousel->status;
+        // optionally update slug if you want
+        self::$carousel->slug = Str::slug($request->carousel_heading);
+        self::$carousel->save();
+    }
+
+
+    // for deleting data 
+    public static function deleteCarousel($id){
+        self::$carousel = Carousel::findOrFail($id);
+        if(self::$carousel->carousel_image !== 'uploads/backend/carousel-images/default_carousel_image.jpg' && file_exists(self::$carousel->carousel_image)){
+            unlink(self::$carousel->carousel_image);
+        }
+        self::$carousel->delete();
+    }
+
 
 }

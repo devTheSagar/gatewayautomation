@@ -58,4 +58,32 @@ class CarouselController extends Controller
         ]);
     }
 
+    // for see the edit form with specific data 
+    public static function edit($id){
+        $carousel = Carousel::findOrFail($id);
+        return view('backend.carousel.edit', [
+            'carousel' => $carousel
+        ]);
+    }
+
+    // update the edits 
+    public static function update(Request $request, String $id){
+        Carousel::updateCarousel($request, $id);
+        Swal::success([
+            'title' => 'Carousel updated successfully.',
+            'timer' => 2000,
+        ]);
+        return back();
+    }
+
+    // delete data 
+    public static function delete(String $id){
+        Carousel::deleteCarousel($id);
+        Swal::success([
+            'title' => 'Carousel updated successfully.',
+            'timer' => 2000,
+        ]);
+        return back();
+    }
+
 }
