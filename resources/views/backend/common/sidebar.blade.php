@@ -58,7 +58,7 @@
                                 </ul>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="content.html">
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route('admin.content') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                                         <circle cx="7" cy="12" r="2.5"></circle>
                                         <circle cx="17" cy="8" r="2.5"></circle>

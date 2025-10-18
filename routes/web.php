@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\backend\CarouselController;
+use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\ClientController;
@@ -104,4 +105,12 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/carousel/edit/{id}', [CarouselController::class, 'edit'])->name('admin.edit.carousel');
     Route::put('/admin/carousel/update/{id}', [CarouselController::class, 'update'])->name('admin.update.carousel');
     Route::delete('/admin/carousel/delete/{id}', [CarouselController::class, 'delete'])->name('admin.delete.carousel');
+
+
+    Route::get('/admin/content', [ContentController::class, 'index'])->name('admin.content');
+    Route::post('/admin/content/store', [ContentController::class, 'store'])->name('admin.store.content');
+    // Route::post('/admin/content/edit', [ContentController::class, 'edit'])->name('admin.edit.content');
+    Route::post('/admin/content/update', [ContentController::class, 'update'])->name('admin.update.content');
+    Route::post('/admin/content/delete', [ContentController::class, 'delete'])->name('admin.delete.content');
+
 });
