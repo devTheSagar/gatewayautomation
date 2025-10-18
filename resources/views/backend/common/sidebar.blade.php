@@ -89,8 +89,8 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Served Industries</a></li>
-                                    <li><a href="add-industry.html" class="slide-item">Add industry</a></li>
-                                    <li><a href="all-industries.html" class="slide-item">All Industries</a></li>
+                                    <li><a href="{{ route('admin.add.served-industry') }}" class="slide-item">Add industry</a></li>
+                                    <li><a href="{{ route('admin.all.served-industry') }}" class="slide-item">All Industries</a></li>
                                 </ul>
                             </li>
                             <li class="slide">

@@ -34,9 +34,6 @@
                     <div class="card">
                         <div class="card-header border-bottom">
                             <h3 class="card-title">All Messages</h3>
-                            <a href="{{ route('admin.add.carousel') }}" class="btn ms-3 btn-primary">
-                                <i class="fa-solid fa-plus"></i> Add Carousel
-                            </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -44,56 +41,46 @@
                                     <thead>
                                         <tr>
                                             <th class="wd-15p border-bottom-0">SL</th>
-                                            <th class="wd-15p border-bottom-0">Image</th>
-                                            <th class="wd-20p border-bottom-0">Heading</th>
-                                            <th class="wd-15p border-bottom-0">Link</th>
-                                            <th class="wd-15p border-bottom-0">Status</th>
-                                            <th class="wd-10p border-bottom-0">Action</th>
+                                            <th class="wd-15p border-bottom-0">Icon</th>
+                                            <th class="wd-25p border-bottom-0">Industry</th>
+                                            <th class="wd-25p border-bottom-0">Status</th>
+                                            <th class="wd-25p border-bottom-0">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($carousels as $carousel)
+                                        @foreach ($servedIndustries as $servedIndustry)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>
-                                                    <img src="{{ asset($carousel->carousel_image) }}" alt="carousel image" height="50px" width="50px" style="border-radius: 50%; border:1px solid rgb(206, 206, 206)">
+                                                    <span class="fs-4">{!! $servedIndustry->icon_code !!}</span>
                                                 </td>
-                                                {{-- <td>{{ $carousel->carousel_heading }}</td> --}}
-                                                <td>{{ Str::limit($carousel->carousel_heading, 20, '...') }}</td>
-                                                <td><a href="{{ $carousel->learn_more_link }}" target="_blank">{{ Str::limit($carousel->learn_more_link, 20, '...') }}</a></td>
-
+                                                <td>{{$servedIndustry->industry }}</td>
                                                 {{-- active stataus  --}}
                                                 <td class="text-center">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-sm dropdown-toggle {{ $carousel->status == 1 ? 'bg-success' : 'bg-danger' }} text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            {{ $carousel->status == 1 ? 'Active' : 'Inactive' }}
+                                                        <button class="btn btn-sm dropdown-toggle {{ $servedIndustry->status == 1 ? 'bg-success' : 'bg-danger' }} text-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            {{ $servedIndustry->status == 1 ? 'Active' : 'Inactive' }}
                                                         </button>
                                                         <ul class="dropdown-menu">
                                                             <li>
-                                                                <a class="dropdown-item text-success change-status" href="javascript:void(0)" data-id="{{ $carousel->id }}" data-status="1">Active</a>
+                                                                <a class="dropdown-item text-success change-status" href="javascript:void(0)" data-id="{{ $servedIndustry->id }}" data-status="1">Active</a>
                                                             </li>
                                                             <li>
-                                                                <a class="dropdown-item text-danger change-status"  href="javascript:void(0)" data-id="{{ $carousel->id }}" data-status="0">Inactive</a>
+                                                                <a class="dropdown-item text-danger change-status"  href="javascript:void(0)" data-id="{{ $servedIndustry->id }}" data-status="0">Inactive</a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </td>
-
                                                 <td class="text-center">
-                                                    <a href="{{ route('admin.view.carousel', $carousel->slug ?: $carousel->id) }}" class="btn btn-outline-primary" title="Show">
+                                                    {{-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
                                                         <i class="fa-solid fa-eye"></i>
-                                                    </a>
-
-                                                    <a href="{{  route('admin.edit.carousel', $carousel->id) }}" class="btn btn-outline-secondary" title="Edit">
+                                                    </button> --}}
+                                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                                         <i class="fa-solid fa-pen-to-square"></i>
-                                                    </a>
-                                                    <form action="{{ route('admin.delete.carousel', $carousel->id) }}" method="POST" class="d-inline">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-outline-danger" title="Delete" onclick="return confirm('Are you sure you want to delete this carousel?')">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </button>
-                                                    </form>
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -116,6 +103,7 @@
 @endsection
 
 
+
 @push('scripts')
     <!-- ACTIVE INACTIVE STATUS SELECT  -->
     <script>
@@ -128,7 +116,7 @@
                     const dropdown = this.closest('.dropdown'); // reference to the parent dropdown
                     const btn = dropdown.querySelector('button'); // the button to update
 
-                    fetch(`{{ url('/admin/carousel/status') }}/${id}`, {
+                    fetch(`{{ url('/admin/served-industries/status') }}/${id}`, {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',

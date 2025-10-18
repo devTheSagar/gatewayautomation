@@ -23,6 +23,9 @@
         <!-- BOOTSTRAP CSS -->
         <link id="style" href="{{ asset('backend/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
+        {{-- BOOTSTRAP ICON CSS  --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
         <!-- STYLE CSS -->
         <link href="{{ asset('backend/assets/css/style.css') }}" rel="stylesheet" />
         <link href="{{asset('backend/assets/css/skin-modes.css') }}" rel="stylesheet" />

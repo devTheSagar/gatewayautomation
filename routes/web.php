@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\MessageController;
+use App\Http\Controllers\backend\ServedIndustriesController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\ClientController;
 use App\Http\Controllers\frontend\ContactController;
@@ -91,6 +92,7 @@ Route::middleware('auth:admin')->group(function () {
     ->name('admin.bulk.delete.messages');
 
 
+    // for carousel part 
     Route::get('/admin/carousel/add', [CarouselController::class, 'add'])->name('admin.add.carousel');
     Route::get('/admin/carousel/index', [CarouselController::class, 'index'])->name('admin.all.carousel');
     Route::post('/admin/carousel/add', [CarouselController::class, 'store'])->name('admin.store.carousel');
@@ -107,10 +109,18 @@ Route::middleware('auth:admin')->group(function () {
     Route::delete('/admin/carousel/delete/{id}', [CarouselController::class, 'delete'])->name('admin.delete.carousel');
 
 
+    // for content part 
     Route::get('/admin/content', [ContentController::class, 'index'])->name('admin.content');
     Route::post('/admin/content/store', [ContentController::class, 'store'])->name('admin.store.content');
     // Route::post('/admin/content/edit', [ContentController::class, 'edit'])->name('admin.edit.content');
     Route::post('/admin/content/update', [ContentController::class, 'update'])->name('admin.update.content');
     Route::post('/admin/content/delete', [ContentController::class, 'delete'])->name('admin.delete.content');
+
+
+    // for served industries part 
+    Route::get('/admin/served-industries', [ServedIndustriesController::class, 'add'])->name('admin.add.served-industry');
+    Route::post('/admin/served-industries', [ServedIndustriesController::class, 'store'])->name('admin.store.served-industry');
+    Route::get('/admin/all-served-industries', [ServedIndustriesController::class, 'index'])->name('admin.all.served-industry');
+    Route::post('/admin/served-industries/status/{id}', [ServedIndustriesController::class, 'changeStatus'])->name('admin.served-industries.changeStatus');
 
 });
