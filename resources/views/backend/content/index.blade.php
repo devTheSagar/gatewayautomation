@@ -130,21 +130,21 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Home Page Heading</label>
+                                    <label class="form-label">Home Page Heading <span class="text-danger">*</span></label>
                                     <input type="text" name="heading" class="form-control @error ('heading') is-invalid @enderror" maxlength="250" value="{{ $content->heading }}" >
                                     @error('heading')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Home Page Sub-heading</label>
+                                    <label class="form-label">Home Page Sub-heading <span class="text-danger">*</span></label>
                                     <textarea class="form-control @error('sub_heading')  is-invalid @enderror" name="sub_heading" maxlength="500" rows="2" >{{ $content->sub_heading }}</textarea>
                                     @error('sub_heading')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Homepage Content</label>
+                                    <label class="form-label">Homepage Content <span class="text-danger">*</span></label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" maxlength="2000" rows="4" >{{ $content->content }}</textarea>
                                     @error('content')
                                         <small class="text-danger">{{ $message }}</small>
