@@ -122,5 +122,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/served-industries', [ServedIndustriesController::class, 'store'])->name('admin.store.served-industry');
     Route::get('/admin/all-served-industries', [ServedIndustriesController::class, 'index'])->name('admin.all.served-industry');
     Route::post('/admin/served-industries/status/{id}', [ServedIndustriesController::class, 'changeStatus'])->name('admin.served-industries.changeStatus');
+    Route::post('/admin/update/served-industries/{id}', [ServedIndustriesController::class, 'update'])->name('admin.update.served-industries');
+    Route::delete('/admin/delete/served-industries/{id}', [ServedIndustriesController::class, 'delete'])->name('admin.delete.served-industries');
 
 });

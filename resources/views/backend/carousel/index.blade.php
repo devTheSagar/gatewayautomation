@@ -115,9 +115,8 @@
 
 @endsection
 
-
 @push('scripts')
-    <!-- ACTIVE INACTIVE STATUS SELECT  -->
+    <!-- ACTIVE INACTIVE STATUS SELECT FOR CAROUSEL PAGE  -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.change-status').forEach(button => {

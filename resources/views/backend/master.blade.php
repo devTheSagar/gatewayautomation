@@ -11,3 +11,4 @@
             @yield('content')
             @include('sweetalert2::index')
             @include('backend.common.footer')
+            @stack('scripts')

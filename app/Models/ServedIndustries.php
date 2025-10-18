@@ -14,4 +14,16 @@ class ServedIndustries extends Model
         self::$servedIndustry->industry = $request->industry;
         self::$servedIndustry->save();
     }
+
+    public static function updateServedIndustry($request, $id){
+        self::$servedIndustry = ServedIndustries::findOrFail($id);
+        self::$servedIndustry->icon_code = $request->icon_code;
+        self::$servedIndustry->industry = $request->industry;
+        self::$servedIndustry->save();
+    }
+
+    public static function deleteServedIndustry($id){
+        self::$servedIndustry = ServedIndustries::findorFail($id);
+        self::$servedIndustry->delete();
+    }
 }

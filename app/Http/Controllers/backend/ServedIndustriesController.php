@@ -48,4 +48,28 @@ class ServedIndustriesController extends Controller
             'status' => $carousel->status
         ]);
     }
+
+    // update 
+    public static function update(Request $request, String $id){
+        $request->validate([
+            'icon_code' => 'required',
+            'industry' => 'required'
+        ]);
+        ServedIndustries::updateServedIndustry($request, $id);
+        Swal::success([
+            'title' => 'Served industry updated successfully',
+            'timer' => 2000,
+        ]);
+        return back();
+    }
+
+    // delete 
+    public static function delete(String $id){
+        ServedIndustries::deleteServedIndustry($id);
+        Swal::success([
+            'title' => 'Served industry deleted successfully',
+            'timer' => 2000,
+        ]);
+        return back();
+    }
 }

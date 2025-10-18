@@ -169,15 +169,15 @@
 
 
 @if ($errors->any())
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        @if(! $content) 
-            var myModal = new bootstrap.Modal(document.getElementById('addContent'));
-            myModal.show();
-        @else
-            var myModal = new bootstrap.Modal(document.getElementById('editContent'));
-            myModal.show();
-        @endif
-    });
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            @if(! $content) 
+                var myModal = new bootstrap.Modal(document.getElementById('addContent'));
+                myModal.show();
+            @else
+                var myModal = new bootstrap.Modal(document.getElementById('editContent'));
+                myModal.show();
+            @endif
+        });
+    </script>
 @endif
