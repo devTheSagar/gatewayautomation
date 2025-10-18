@@ -87,16 +87,25 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Home Page Heading</label>
-                                    <input type="text" name="heading" class="form-control" maxlength="250" >
+                                    <label class="form-label">Home Page Heading <span class="text-danger">*</span></label>
+                                    <input type="text" name="heading" class="form-control @error('heading') is-invalid @enderror" maxlength="250" value="{{ old('heading') }}">
+                                    @error('heading')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Home Page Sub-heading</label>
-                                    <textarea class="form-control" name="sub_heading" maxlength="500" rows="2" ></textarea>
+                                    <label class="form-label">Home Page Sub-heading <span class="text-danger">*</span></label>
+                                    <textarea class="form-control @error('sub_heading') is-invalid @enderror" name="sub_heading" maxlength="500" rows="2" >{{ old('sub_heading') }}</textarea>
+                                    @error('sub_heading')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label">Homepage Content</label>
-                                    <textarea class="form-control" name="content" maxlength="2000" rows="4" ></textarea>
+                                    <label class="form-label">Homepage Content <span class="text-danger">*</span></label>
+                                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" maxlength="2000" rows="4" >{{ old('content') }}</textarea>
+                                    @error('content')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -122,15 +131,24 @@
                             <div class="modal-body">
                                 <div class="form-group mb-3">
                                     <label class="form-label">Home Page Heading</label>
-                                    <input type="text" name="heading" class="form-control" maxlength="250" value="{{ $content->heading }}" required>
+                                    <input type="text" name="heading" class="form-control @error ('heading') is-invalid @enderror" maxlength="250" value="{{ $content->heading }}" >
+                                    @error('heading')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Home Page Sub-heading</label>
-                                    <textarea class="form-control" name="sub_heading" maxlength="500" rows="2" required>{{ $content->sub_heading }}</textarea>
+                                    <textarea class="form-control @error('sub_heading')  is-invalid @enderror" name="sub_heading" maxlength="500" rows="2" >{{ $content->sub_heading }}</textarea>
+                                    @error('sub_heading')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Homepage Content</label>
-                                    <textarea class="form-control" name="content" maxlength="2000" rows="4" required>{{ $content->content }}</textarea>
+                                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" maxlength="2000" rows="4" >{{ $content->content }}</textarea>
+                                    @error('content')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -148,3 +166,18 @@
 </div>
 <!-- CONTAINER CLOSED -->
 @endsection
+
+
+@if ($errors->any())
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        @if(! $content) 
+            var myModal = new bootstrap.Modal(document.getElementById('addContent'));
+            myModal.show();
+        @else
+            var myModal = new bootstrap.Modal(document.getElementById('editContent'));
+            myModal.show();
+        @endif
+    });
+</script>
+@endif

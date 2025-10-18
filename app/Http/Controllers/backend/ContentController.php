@@ -20,8 +20,8 @@ class ContentController extends Controller
     public static function store(Request $request){
         $request->validate([
             'heading'       => 'required|max:300',
-            'sub_heading'   => 'required|500',
-            'content'       => 'required|5000'
+            'sub_heading'   => 'required|max:500',
+            'content'       => 'required|max:5000'
         ]);
         Content::storeContent($request);
         Swal::success([
@@ -32,6 +32,11 @@ class ContentController extends Controller
     }
 
     public function update(Request $request){
+        $request->validate([
+            'heading'       => 'required|max:300',
+            'sub_heading'   => 'required|max:500',
+            'content'       => 'required|max:5000'
+        ]);
         Content::updateContent($request);
         Swal::success([
             'title' => 'Content updated successfully.',
