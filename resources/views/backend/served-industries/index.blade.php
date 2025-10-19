@@ -32,8 +32,11 @@
             <div class="row row-sm">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header border-bottom">
+                        <div class="card-header border-bottom d-flex">
                             <h3 class="card-title">All Industries</h3>
+                            <a href="{{ route('admin.add.served-industry') }}" class="btn btn-primary ms-auto">
+                                <i class="fa fa-plus"></i> Add New
+                            </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

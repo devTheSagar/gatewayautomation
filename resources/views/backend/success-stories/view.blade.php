@@ -31,11 +31,16 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
-                        <div class="card-header border-bottom d-flex justify-content-start align-items-center">
+                        <div class="card-header border-bottom d-flex">
                             <h3 class="card-title me-3">Success Stroy Information</h3>
-                            <a href="{{ route('admin.all.success-stories') }}" class="btn btn-sm btn-primary">
-                                <i class="fa fa-arrow-left"></i> Go Back
-                            </a>
+                            <div class="ms-auto">
+                                <a href="{{ route('admin.add.success-stories') }}" class="btn btn-primary">
+                                    <i class="fa fa-plus"></i> Add New
+                                </a>
+                                <a href="{{ route('admin.all.success-stories') }}" class="btn btn-secondary">
+                                    <i class="fa fa-arrow-left"></i> Go Back
+                                </a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="text-start mb-4">

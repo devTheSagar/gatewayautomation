@@ -32,8 +32,11 @@
             <div class="row row-sm">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header border-bottom">
-                            <h3 class="card-title">All Success Stories</h3>
+                        <div class="card-header border-bottom d-flex">
+                            <h3 class="card-title me-3">All Success Stories</h3>
+                            <a href="{{ route('admin.add.success-stories') }}" class="btn btn-primary ms-auto">
+                                <i class="fa fa-plus"></i> Add New
+                            </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

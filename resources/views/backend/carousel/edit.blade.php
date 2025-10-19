@@ -33,11 +33,16 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
-                        <div class="card-header border-bottom">
+                        <div class="card-header border-bottom d-flex">
                             <h3 class="card-title">Carousel edit form</h3>
-                            <a href="{{ route('admin.all.carousel') }}" class="btn btn-sm ms-3 btn-secondary">
-                                <i class="fa fa-arrow-left"></i> Go Back
-                            </a>
+                            <div class="ms-auto">
+                                <a href="{{ route('admin.add.carousel') }}" class="btn btn-primary">
+                                    <i class="fa fa-plus"></i> Add New
+                                </a>
+                                <a href="{{ route('admin.all.carousel') }}" class="btn btn-secondary">
+                                    <i class="fa fa-arrow-left"></i> Go Back
+                                </a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin.update.carousel', $carousel->id) }}" method="POST" enctype="multipart/form-data">
@@ -72,10 +77,6 @@
 
                                 <!-- submit button -->
                                 <button type="submit" class="btn btn-primary w-50 mt-3">Save</button>
-                                {{-- back btn  --}}
-                                <a href="{{ route('admin.all.carousel') }}" class="btn ms-3 btn-secondary mt-3">
-                                    <i class="fa fa-arrow-left"></i> Go Back
-                                </a>
                             </form>
                             
                         </div>

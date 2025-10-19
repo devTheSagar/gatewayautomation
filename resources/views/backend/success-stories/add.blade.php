@@ -33,8 +33,11 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="card">
-                    <div class="card-header border-bottom">
-                        <h3 class="card-title">Success story form</h3>
+                    <div class="card-header border-bottom d-flex">
+                        <h3 class="card-title me-3">Success story form</h3>
+                        <a href="{{ route('admin.all.success-stories') }}" class="btn btn-success ms-auto">
+                            <i class="fa fa-eye"></i> See All
+                        </a>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.store.success-stories') }}" method="POST" enctype="multipart/form-data">

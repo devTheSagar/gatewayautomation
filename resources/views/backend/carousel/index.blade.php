@@ -32,10 +32,10 @@
             <div class="row row-sm">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header border-bottom">
+                        <div class="card-header border-bottom d-flex">
                             <h3 class="card-title">All Messages</h3>
-                            <a href="{{ route('admin.add.carousel') }}" class="btn ms-3 btn-primary">
-                                <i class="fa-solid fa-plus"></i> Add Carousel
+                            <a href="{{ route('admin.add.carousel') }}" class="btn btn-primary ms-auto">
+                                <i class="fa fa-plus"></i> Add New
                             </a>
                         </div>
                         <div class="card-body">
