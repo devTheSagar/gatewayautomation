@@ -112,8 +112,8 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Success Stories</a></li>
-                                    <li><a href="add-success-story.html" class="slide-item">Add</a></li>
-                                    <li><a href="all-success-stories.html" class="slide-item">All</a></li>
+                                    <li><a href="{{ route('admin.add.success-stories') }}" class="slide-item">Add</a></li>
+                                    <li><a href="{{ route('admin.all.success-stories') }}" class="slide-item">All</a></li>
                                 </ul>
                             </li>
                             <li class="slide">

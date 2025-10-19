@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\backend\ServedIndustriesController;
+use App\Http\Controllers\backend\SuccessStoriesController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\ClientController;
 use App\Http\Controllers\frontend\ContactController;
@@ -125,4 +126,14 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/update/served-industries/{id}', [ServedIndustriesController::class, 'update'])->name('admin.update.served-industries');
     Route::delete('/admin/delete/served-industries/{id}', [ServedIndustriesController::class, 'delete'])->name('admin.delete.served-industries');
 
+    // for success stories 
+    Route::get('/admin/add/success-stories',[SuccessStoriesController::class, 'add'])->name('admin.add.success-stories');
+    Route::post('/admin/store/success-stories',[SuccessStoriesController::class, 'store'])->name('admin.store.success-stories');
+    Route::get('/admin/all/success-stories',[SuccessStoriesController::class, 'index'])->name('admin.all.success-stories');
+    // route for change status 
+    Route::post('/admin/success-stories/status/{id}', [SuccessStoriesController::class, 'changeStatus'])->name('admin.success-stories.changeStatus');
+    Route::get('/admin/view/success-stories/{id}', [SuccessStoriesController::class, 'view'])->name('admin.view.success-stories');
+    Route::get('/admin/edit/success-stories/{id}', [SuccessStoriesController::class, 'edit'])->name('admin.edit.success-stories');
+    Route::put('/admin/update/success-stories/{id}', [SuccessStoriesController::class, 'update'])->name('admin.update.success-stories');
+    Route::delete('/admin/delete/success-stories{id}', [SuccessStoriesController::class, 'delete'])->name('admin.delete.success-stories');
 });
