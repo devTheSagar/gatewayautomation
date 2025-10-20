@@ -145,8 +145,8 @@
 
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Technologies</a></li>
-                                    <li><a href="add-technologies.html" class="slide-item">Add technology</a></li>
-                                    <li><a href="all-technologies.html" class="slide-item">All technologies</a></li>
+                                    <li><a href="{{ route('admin.add.technologies') }}" class="slide-item">Add technology</a></li>
+                                    <li><a href="{{ route('admin.all.technologies') }}" class="slide-item">All technologies</a></li>
                                 </ul>
                             </li>
                             <li class="slide">

@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\backend\ServedIndustriesController;
 use App\Http\Controllers\backend\SuccessStoriesController;
+use App\Http\Controllers\backend\TechnologiesController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\ClientController;
 use App\Http\Controllers\frontend\ContactController;
@@ -136,4 +137,13 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/edit/success-stories/{id}', [SuccessStoriesController::class, 'edit'])->name('admin.edit.success-stories');
     Route::put('/admin/update/success-stories/{id}', [SuccessStoriesController::class, 'update'])->name('admin.update.success-stories');
     Route::delete('/admin/delete/success-stories{id}', [SuccessStoriesController::class, 'delete'])->name('admin.delete.success-stories');
+
+    // technologies we use section 
+    Route::get('/admin/add/technology', [TechnologiesController::class, 'add'])->name('admin.add.technologies');
+    Route::get('/admin/all/technology', [TechnologiesController::class, 'index'])->name('admin.all.technologies');
+    Route::post('/admin/store/technology', [TechnologiesController::class, 'store'])->name('admin.store.technologies');
+    // route for change status 
+    Route::post('/admin/technology/status/{id}', [TechnologiesController::class, 'changeStatus'])->name('admin.technology.changeStatus');
+    Route::post('/admin/update/technology/{id}', [TechnologiesController::class, 'update'])->name('admin.update.technology');
+    Route::delete('/admin/delete/technology{id}', [TechnologiesController::class, 'delete'])->name('admin.delete.technology');
 });
