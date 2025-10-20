@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\backend\ServedIndustriesController;
 use App\Http\Controllers\backend\SuccessStoriesController;
 use App\Http\Controllers\backend\TechnologiesController;
+use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\ClientController;
 use App\Http\Controllers\frontend\ContactController;
@@ -146,4 +147,17 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/technology/status/{id}', [TechnologiesController::class, 'changeStatus'])->name('admin.technology.changeStatus');
     Route::post('/admin/update/technology/{id}', [TechnologiesController::class, 'update'])->name('admin.update.technology');
     Route::delete('/admin/delete/technology{id}', [TechnologiesController::class, 'delete'])->name('admin.delete.technology');
+
+
+    // testimonials section 
+    Route::get('/admin/add/testimonial', [TestimonialController::class, 'add'])->name('admin.add.testimonial');
+    Route::get('/admin/all/testimonial', [TestimonialController::class, 'index'])->name('admin.all.testimonial');
+    Route::post('/admin/store/testimonial', [TestimonialController::class, 'store'])->name('admin.store.testimonial');
+    // route for change status 
+    Route::post('/admin/testimonial/status/{id}', [TestimonialController::class, 'changeStatus'])->name('admin.testimonial.changeStatus');
+    Route::get('/admin/view/testimonial/{id}', [TestimonialController::class, 'view'])->name('admin.view.testimonial');
+    Route::get('/admin/edit/testimonial/{id}', [TestimonialController::class, 'edit'])->name('admin.edit.testimonial');
+    Route::put('/admin/update/testimonial/{id}', [TestimonialController::class, 'update'])->name('admin.update.testimonial');
+    Route::delete('/admin/delete/testimonial{id}', [TestimonialController::class, 'delete'])->name('admin.delete.testimonial');
+
 });

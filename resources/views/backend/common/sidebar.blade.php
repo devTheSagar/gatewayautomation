@@ -171,8 +171,8 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Testimonials</a></li>
-                                    <li><a href="add-testimonial.html" class="slide-item">Add testimonial</a></li>
-                                    <li><a href="all-testimonials.html" class="slide-item">All testimonials</a></li>
+                                    <li><a href="{{ route('admin.add.testimonial') }}" class="slide-item">Add testimonial</a></li>
+                                    <li><a href="{{ route('admin.all.testimonial') }}" class="slide-item">All testimonials</a></li>
                                 </ul>
                             </li>
                             <li class="slide">
