@@ -197,8 +197,8 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Clients</a></li>
-                                    <li><a href="add-client.html" class="slide-item">Add clients</a></li>
-                                    <li><a href="all-clients.html" class="slide-item">All clients</a></li>
+                                    <li><a href="{{ route('admin.add.client') }}" class="slide-item">Add clients</a></li>
+                                    <li><a href="{{ route('admin.all.client') }}" class="slide-item">All clients</a></li>
                                 </ul>
                             </li>
                             <li>

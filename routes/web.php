@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\backend\CarouselController;
+use App\Http\Controllers\backend\ClientController as BackendClientController;
 use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\backend\ServedIndustriesController;
@@ -159,5 +160,18 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/edit/testimonial/{id}', [TestimonialController::class, 'edit'])->name('admin.edit.testimonial');
     Route::put('/admin/update/testimonial/{id}', [TestimonialController::class, 'update'])->name('admin.update.testimonial');
     Route::delete('/admin/delete/testimonial{id}', [TestimonialController::class, 'delete'])->name('admin.delete.testimonial');
+
+
+
+    // clients section 
+    Route::get('/admin/add/client', [BackendClientController::class, 'add'])->name('admin.add.client');
+    Route::post('/admin/store/client', [BackendClientController::class, 'store'])->name('admin.store.client');
+    Route::get('/admin/all/client', [BackendClientController::class, 'index'])->name('admin.all.client');
+    // route for change status 
+    Route::post('/admin/client/status/{id}', [BackendClientController::class, 'changeStatus'])->name('admin.client.changeStatus');
+    Route::get('/admin/view/client/{id}', [BackendClientController::class, 'view'])->name('admin.view.client');
+    Route::get('/admin/edit/client/{id}', [BackendClientController::class, 'edit'])->name('admin.edit.client');
+    Route::put('/admin/update/client/{id}', [BackendClientController::class, 'update'])->name('admin.update.client');
+    Route::delete('/admin/delete/client{id}', [BackendClientController::class, 'delete'])->name('admin.delete.client');
 
 });
