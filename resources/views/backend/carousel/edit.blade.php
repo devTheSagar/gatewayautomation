@@ -40,7 +40,7 @@
                                     <i class="fa fa-plus"></i> Add New
                                 </a>
                                 <a href="{{ route('admin.all.carousel') }}" class="btn btn-secondary">
-                                    <i class="fa fa-arrow-left"></i> Go Back
+                                    <i class="fa fa-list"></i> All Carousels
                                 </a>
                             </div>
                         </div>
