@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\backend\AboutUsController;
 use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\ClientController as BackendClientController;
 use App\Http\Controllers\backend\ContentController;
@@ -173,5 +174,12 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/edit/client/{id}', [BackendClientController::class, 'edit'])->name('admin.edit.client');
     Route::put('/admin/update/client/{id}', [BackendClientController::class, 'update'])->name('admin.update.client');
     Route::delete('/admin/delete/client{id}', [BackendClientController::class, 'delete'])->name('admin.delete.client');
+
+
+    // for about us part 
+    Route::get('/admin/about-us', [AboutUsController::class, 'index'])->name('admin.about-us');
+    Route::post('/admin/about-us/store', [AboutUsController::class, 'store'])->name('admin.store.about-us');
+    Route::post('/admin/about-us/update', [AboutUsController::class, 'update'])->name('admin.update.about-us');
+    Route::post('/admin/about-us/delete', [AboutUsController::class, 'delete'])->name('admin.delete.about-us');
 
 });
