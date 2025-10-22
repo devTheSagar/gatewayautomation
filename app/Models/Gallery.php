@@ -27,4 +27,14 @@ class Gallery extends Model
         self::$gallery->gallery_image = self::imageUpload($request);
         self::$gallery->save();
     }
+
+
+    // for deleting data 
+    public static function deleteGaleryImage($id){
+        self::$gallery = Gallery::findOrFail($id);
+        if(self::$gallery->gallery_image !== 'uploads/backend/gallery-images/default_gallery_image.jpg' && file_exists(self::$gallery->gallery_image)){
+            unlink(self::$gallery->gallery_image);
+        }
+        self::$gallery->delete();
+    }
 }

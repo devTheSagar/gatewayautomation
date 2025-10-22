@@ -24,4 +24,31 @@ class GalleryController extends Controller
         ]);
         return back();
     }
+
+    public static function delete(String $id){
+        Gallery::deleteGaleryImage($id);
+        Swal::success([
+            'title' => 'Image deleted successfully.',
+            'timer' => 2000,
+        ]);
+        return back();
+    }
+
+    public static function view(String $id){
+        $gallery = Gallery::findOrFail($id);
+        
+    }
+
+    // store active status to db 
+    public function changeStatus(Request $request, $id){
+        $gallery = Gallery::findOrFail($id);
+        $gallery->status = $request->status;  // 1 or 0
+        $gallery->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Status updated successfully.',
+            'status' => $gallery->status
+        ]);
+    }
 }

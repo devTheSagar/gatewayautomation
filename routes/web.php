@@ -187,5 +187,8 @@ Route::middleware('auth:admin')->group(function () {
     // for gallery 
     Route::get('/admin/gallery', [BackendGalleryController::class, 'index'])->name('admin.gallery');
     Route::post('/admin/add/gallery', [BackendGalleryController::class, 'store'])->name('admin.add.gallery');
-
+    Route::delete('/admin/delete/gallery/{id}', [BackendGalleryController::class, 'delete'])->name('admin.delete.gallery');
+    Route::get('/admin/view/gallery/{id}', [BackendGalleryController::class, 'view'])->name('admin.view.gallery');
+    Route::post('/admin/gallery/status/{id}', [BackendGalleryController::class, 'changeStatus'])->name('admin.gallery.changeStatus');
+    
 });

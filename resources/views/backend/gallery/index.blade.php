@@ -37,8 +37,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3">
-                                <a class="btn btn-primary" data-bs-target="#modalToggle" data-bs-toggle="modal" href="javascript:void(0)">Add Content</a>
-                                <button class="m-1 btn btn-danger">Delete Content</button>
+                                <a class="btn btn-primary" data-bs-target="#modalToggle" data-bs-toggle="modal" href="javascript:void(0)"><i class="bi bi-plus-lg"></i>Add image</a>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered text-nowrap border-bottom w-100" id="responsive-datatable">
@@ -75,15 +74,20 @@
                                                 </td>
                                                 {{-- <td>active</td> --}}
                                                 <td class="text-center">
-                                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Show">
+                                                    <button type="button" 
+                                                        class="btn btn-outline-primary showImageBtn me-2" 
+                                                        data-img="{{ asset($galleryImage->gallery_image) }}"
+                                                        title="Show">
                                                         <i class="fa-solid fa-eye"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                        <i class="fa-solid fa-trash"></i>
-                                                    </button>
+
+                                                    <form action="{{ route('admin.delete.gallery', $galleryImage->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-outline-danger" title="Delete" onclick="return confirm('Are you sure you want to delete this image?')">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -105,7 +109,7 @@
                             @csrf
                             <div class="modal-header">
                                 <h6 class="modal-title">Add content</h6>
-                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
+                                <button aria-label="Close" type="button" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <div>
@@ -121,7 +125,23 @@
                     </div>
                 </div>
             </div>
-            
+
+
+
+            <!-- IMAGE VIEW MODAL -->
+            <div class="modal fade" id="showImageModal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Gallery Image</h5>
+                            <button aria-label="Close" type="button" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img id="modalImagePreview" src="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -157,7 +177,7 @@
                     const dropdown = this.closest('.dropdown'); // reference to the parent dropdown
                     const btn = dropdown.querySelector('button'); // the button to update
 
-                    fetch(`{{ url('/admin/carousel/status') }}/${id}`, {
+                    fetch(`{{ url('/admin/gallery/status') }}/${id}`, {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -179,4 +199,18 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.showImageBtn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    let imgUrl = this.getAttribute('data-img');
+                    document.getElementById('modalImagePreview').src = imgUrl;
+                    var modal = new bootstrap.Modal(document.getElementById('showImageModal'));
+                    modal.show();
+                });
+            });
+        });
+    </script>
+
 @endpush
