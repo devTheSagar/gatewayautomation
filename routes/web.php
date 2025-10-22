@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\AboutUsController;
 use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\ClientController as BackendClientController;
 use App\Http\Controllers\backend\ContentController;
+use App\Http\Controllers\backend\GalleryController as BackendGalleryController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\backend\ServedIndustriesController;
 use App\Http\Controllers\backend\SuccessStoriesController;
@@ -181,5 +182,10 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/about-us/store', [AboutUsController::class, 'store'])->name('admin.store.about-us');
     Route::post('/admin/about-us/update', [AboutUsController::class, 'update'])->name('admin.update.about-us');
     Route::post('/admin/about-us/delete', [AboutUsController::class, 'delete'])->name('admin.delete.about-us');
+
+
+    // for gallery 
+    Route::get('/admin/gallery', [BackendGalleryController::class, 'index'])->name('admin.gallery');
+    Route::post('/admin/add/gallery', [BackendGalleryController::class, 'store'])->name('admin.add.gallery');
 
 });
