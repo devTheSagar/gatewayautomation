@@ -89,8 +89,8 @@
                                                                             N/A
                                                                         @endif
                                                                     </td>
-                                                                    <td>{{ $heading }}</td>
-                                                                    <td>{{ $texts[$index] ?? '' }}</td>
+                                                                    <td>{{ $heading ?? 'N/A' }}</td>
+                                                                    <td>{{ $texts[$index] ?? 'N/A' }}</td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>
@@ -200,17 +200,13 @@
                                     <!-- Mission -->
                                     <div class="form-group">
                                         <label class="form-label">Mission</label>
-                                        <textarea class="form-control" name="mission" maxlength="500" rows="2">
-                                            {{ old('mission', $aboutUs->mission) }}
-                                        </textarea>
+                                        <textarea class="form-control" name="mission" maxlength="500" rows="2">{{ old('mission', $aboutUs->mission) }}</textarea>
                                     </div>
 
                                     <!-- Vision -->
                                     <div class="form-group">
                                         <label class="form-label">Vision</label>
-                                        <textarea class="form-control" name="vision" maxlength="500" rows="2">
-                                            {{ old('vision', $aboutUs->vision) }}
-                                        </textarea>
+                                        <textarea class="form-control" name="vision" maxlength="500" rows="2">{{ old('vision', $aboutUs->vision) }}</textarea>
                                     </div>
 
                                     <!-- Now loop cards dynamically -->
@@ -241,9 +237,7 @@
                                     <!-- Story -->
                                     <div class="form-group mt-4">
                                         <label class="form-label">Story</label>
-                                        <textarea class="form-control" name="story" maxlength="2000" rows="5">
-                                            {{ old('story', $aboutUs->story) }}
-                                        </textarea>
+                                        <textarea class="form-control" name="story" maxlength="2000" rows="5">{{ old('story', $aboutUs->story) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
