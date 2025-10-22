@@ -123,7 +123,7 @@
                             @csrf
                             <div class="modal-header">
                                 <h6 class="modal-title">Add about us</h6>
-                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
+                                <button aria-label="Close" type="button" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <!-- mission  -->
@@ -176,8 +176,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Save</button>
-                                <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
@@ -193,7 +193,7 @@
                                 @csrf
                                 <div class="modal-header">
                                     <h6 class="modal-title">Edit About Us</h6>
-                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"></button>
+                                    <button aria-label="Close" type="button" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">
 
@@ -245,14 +245,10 @@
                                             {{ old('story', $aboutUs->story) }}
                                         </textarea>
                                     </div>
-
-                                    
-
                                 </div>
-
                                 <div class="modal-footer">
                                     <button class="btn btn-primary" type="submit">Update</button>
-                                    <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </form>
                         </div>
