@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\backend\AboutUsController;
+use App\Http\Controllers\backend\BrochureController;
 use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\ClientController as BackendClientController;
 use App\Http\Controllers\backend\ContentController;
@@ -191,4 +192,9 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/view/gallery/{id}', [BackendGalleryController::class, 'view'])->name('admin.view.gallery');
     Route::post('/admin/gallery/status/{id}', [BackendGalleryController::class, 'changeStatus'])->name('admin.gallery.changeStatus');
     
+
+    // for brochure 
+    Route::get('/admin/brochure', [BrochureController::class, 'index'])->name('admin.brochure');
+    Route::post('/admin/brochure/upload', [BrochureController::class, 'upload'])->name('admin.add.brochure');
+
 });
