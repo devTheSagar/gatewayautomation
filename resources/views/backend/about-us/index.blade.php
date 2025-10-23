@@ -21,8 +21,7 @@
                 <div class="ms-auto pageheader-btn">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-                        <li class="breadcrumb-item" aria-current="page">About Us</li>
-                        <li class="breadcrumb-item active" aria-current="page">Manage Content</li>
+                        <li class="breadcrumb-item active" aria-current="page">About Us</li>
                     </ol>
                 </div>
             </div>
@@ -39,13 +38,13 @@
 
                             <div class="mb-3">
                                 @if($aboutUs)
-                                    <button class="m-1 btn btn-warning" data-bs-toggle="modal" data-bs-target="#editContent">Edit Content</button>
+                                    <button class="m-1 btn btn-warning" data-bs-toggle="modal" data-bs-target="#editContent"><i class="fa-solid fa-pen-to-square"></i> Edit Content</button>
                                     <form action="{{ route('admin.delete.about-us') }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this content?');">
                                         @csrf
-                                        <button type="submit" class="m-1 btn btn-danger">Delete Content</button>
+                                        <button type="submit" class="m-1 btn btn-danger"><i class="fa-solid fa-trash"></i> Delete Content</button>
                                     </form>
                                 @else
-                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContent" href="javascript:void(0)">Add Content</a>
+                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContent" href="javascript:void(0)"> <i class="fa-solid fa-plus"></i> Add Content</a>
                                 @endif
                             </div>
 
@@ -129,39 +128,82 @@
                                 <!-- mission  -->
                                 <div class="form-group">
                                     <label for="mission" class="form-label">Mission</label>
-                                    <textarea class="form-control" name="mission" maxlength="500" id="mission" rows="2"></textarea>
+                                    <textarea class="form-control @error('mission') is-invalid @enderror" name="mission" maxlength="2000" id="mission" rows="2">{{ old('mission') }}</textarea>
+                                    @error('mission')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <!-- mission  -->
                                 <div class="form-group">
                                     <label for="vision" class="form-label">Vision</label>
-                                    <textarea class="form-control" name="vision" maxlength="500" id="vision" rows="2"></textarea>
+                                    <textarea class="form-control @error('vision') is-invalid @enderror" name="vision" maxlength="2000" id="vision" rows="2">{{ old('vision') }}</textarea>
+                                    @error('vision')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                                 <div style="margin-top: 9vh; margin-bottom: 9vh;">
                                     <h4>Card section</h4>
 
                                     <div id="add-cards-wrapper">
-                                        <div class="about-card-item my-4 p-3" style="border: 1px solid rgb(68, 68, 68); position: relative;">
-                                            <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 remove-card-btn" style="display: none;">&times;</button>
+                                        @php
+                                            $oldCards = old('card_icon', []); // Count how many cards exist
+                                        @endphp
 
-                                            <!-- card logo -->
-                                            <div class="form-group mb-3">
-                                                <label for="card_icon" class="form-label fw-semibold">Card logo (Bootstrap or Font-Awesome)</label>
-                                                <input type="text" name="card_icon[]" class="form-control w-100" maxlength="250" name="logo[]" id="card_icon">
-                                            </div>
+                                        @if(count($oldCards) > 0)
+                                            @foreach($oldCards as $index => $icon)
+                                                <div class="about-card-item my-4 p-3" style="border: 1px solid rgb(68, 68, 68); position: relative;">
+                                                    <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 remove-card-btn" style="display: {{ $index == 0 ? 'none' : 'block' }};">&times;</button>
 
-                                            <!-- card heading -->
-                                            <div class="form-group mb-3">
-                                                <label for="card_heading" class="form-label fw-semibold">Card heading</label>
-                                                <input type="text" name="card_heading[]" class="form-control w-100" maxlength="250" name="heading[]" id="card_heading">
-                                            </div>
+                                                    <!-- card logo -->
+                                                    <div class="form-group mb-3">
+                                                        <label class="form-label fw-semibold">Card logo</label>
+                                                        <input type="text" name="card_icon[]" class="form-control @error("card_icon.$index") is-invalid @enderror" value="{{ old("card_icon.$index") }}" maxlength="250">
+                                                        @error("card_icon.$index")
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
 
-                                            <!-- card text -->
-                                            <div class="form-group mb-2">
-                                                <label for="card_text" class="form-label fw-semibold">Card text</label>
-                                                <textarea class="form-control w-100" name="card_text[]" maxlength="500" rows="2" name="text[]" id="card_text"></textarea>
+                                                    <!-- card heading -->
+                                                    <div class="form-group mb-3">
+                                                        <label class="form-label fw-semibold">Card heading</label>
+                                                        <input type="text" name="card_heading[]" class="form-control @error("card_heading.$index") is-invalid @enderror" value="{{ old("card_heading.$index") }}" maxlength="250">
+                                                        @error("card_heading.$index")
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+
+                                                    <!-- card text -->
+                                                    <div class="form-group mb-2">
+                                                        <label class="form-label fw-semibold">Card text</label>
+                                                        <textarea class="form-control @error("card_text.$index") is-invalid @enderror" name="card_text[]" maxlength="500" rows="2">{{ old("card_text.$index") }}</textarea>
+                                                        @error("card_text.$index")
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            {{-- First blank card when no old input --}}
+                                            <div class="about-card-item my-4 p-3" style="border: 1px solid rgb(68, 68, 68); position: relative;">
+                                                <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 remove-card-btn" style="display: none;">&times;</button>
+
+                                                <div class="form-group mb-3">
+                                                    <label class="form-label fw-semibold">Card logo</label>
+                                                    <input type="text" name="card_icon[]" class="form-control" maxlength="250">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label class="form-label fw-semibold">Card heading</label>
+                                                    <input type="text" name="card_heading[]" class="form-control" maxlength="250">
+                                                </div>
+
+                                                <div class="form-group mb-2">
+                                                    <label class="form-label fw-semibold">Card text</label>
+                                                    <textarea class="form-control" name="card_text[]" maxlength="500" rows="2"></textarea>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
 
                                     <!-- Add More Button -->
@@ -172,7 +214,10 @@
                                 <!-- story  -->
                                 <div class="form-group">
                                     <label for="story" class="form-label">Story</label>
-                                    <textarea class="form-control" name="story" maxlength="2000" id="story" rows="5"></textarea>
+                                    <textarea class="form-control @error('story') is-invalid @enderror" name="story" maxlength="2000" id="story" rows="5">{{ old('story') }}</textarea>
+                                    @error('story')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -200,13 +245,19 @@
                                     <!-- Mission -->
                                     <div class="form-group">
                                         <label class="form-label">Mission</label>
-                                        <textarea class="form-control" name="mission" maxlength="500" rows="2">{{ old('mission', $aboutUs->mission) }}</textarea>
+                                        <textarea class="form-control @error('mission') is-invalid @enderror" name="mission" maxlength="500" rows="2">{{ old('mission', $aboutUs->mission) }}</textarea>
+                                        @error('mission')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <!-- Vision -->
                                     <div class="form-group">
                                         <label class="form-label">Vision</label>
-                                        <textarea class="form-control" name="vision" maxlength="500" rows="2">{{ old('vision', $aboutUs->vision) }}</textarea>
+                                        <textarea class="form-control @error('vision') is-invalid @enderror" name="vision" maxlength="500" rows="2">{{ old('vision', $aboutUs->vision) }}</textarea>
+                                        @error('vision')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <!-- Now loop cards dynamically -->
@@ -217,17 +268,26 @@
 
                                                 <div class="form-group mb-3">
                                                     <label class="form-label">Card Icon</label>
-                                                    <input type="text" name="card_icon[]" class="form-control" value="{{ $aboutUs->card_icon[$index] ?? '' }}">
+                                                    <input type="text" name="card_icon[]" class="form-control @error('card_icon.'.$index) is-invalid @enderror" value="{{ old('card_icon.'.$index, $aboutUs->card_icon[$index] ?? '') }}">
+                                                    @error('card_icon.'.$index)
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label class="form-label">Card Heading</label>
-                                                    <input type="text" name="card_heading[]" class="form-control" value="{{ $heading }}">
+                                                    <input type="text" name="card_heading[]" class="form-control @error('card_heading.'.$index) is-invalid @enderror" value="{{ old('card_heading.'.$index, $aboutUs->card_heading[$index] ?? '') }}">
+                                                    @error('card_heading.'.$index)
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="form-group mb-2">
                                                     <label class="form-label">Card Text</label>
-                                                    <textarea class="form-control" name="card_text[]" rows="2">{{ $aboutUs->card_text[$index] ?? '' }}</textarea>
+                                                    <textarea name="card_text[]" class="form-control @error('card_text.'.$index) is-invalid @enderror" rows="2">{{ old('card_text.'.$index, $aboutUs->card_heading[$index] ?? '') }}</textarea>
+                                                    @error('card_text.'.$index)
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         @endforeach
@@ -237,7 +297,10 @@
                                     <!-- Story -->
                                     <div class="form-group mt-4">
                                         <label class="form-label">Story</label>
-                                        <textarea class="form-control" name="story" maxlength="2000" rows="5">{{ old('story', $aboutUs->story) }}</textarea>
+                                        <textarea class="form-control @error('story') is-invalid @enderror" name="story" maxlength="2000" rows="5">{{ old('story', $aboutUs->story) }}</textarea>
+                                        @error('story')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="modal-footer">

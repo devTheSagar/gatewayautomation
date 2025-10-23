@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->longText('mission')->nullable(false);
             $table->longText('vision')->nullable(false);
-            $table->json('card_icon')->nullable();
-            $table->json('card_heading')->nullable();
-            $table->json('card_text')->nullable();
+            $table->json('card_icon')->nullable(false);
+            $table->json('card_heading')->nullable(false);
+            $table->json('card_text')->nullable(false);
             $table->longText('story')->nullable(false);
             $table->timestamps();
         });

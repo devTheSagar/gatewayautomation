@@ -17,6 +17,19 @@ class AboutUsController extends Controller
     }
 
     public static function store(Request $request){
+        $request->validate([
+            'mission'        => 'required|max:2000',
+            'vision'         => 'required|max:2000',
+            'card_icon.*'    => 'required|max:250',
+            'card_heading.*' => 'required|max:250',
+            'card_text.*'    => 'required|max:500',
+            'story'          => 'required|max:5000',
+        ], [
+            'card_icon.*.required'    => 'Card logo is required',
+            'card_heading.*.required' => 'Card heading is required',
+            'card_text.*.required'    => 'Card text is required',
+        ]);
+
         AboutUs::storeaboutUs($request);
         Swal::success([
             'title' => 'About us content added successfully.',
@@ -27,6 +40,18 @@ class AboutUsController extends Controller
 
 
     public function update(Request $request){
+        $request->validate([
+            'mission'        => 'required|max:2000',
+            'vision'         => 'required|max:2000',
+            'card_icon.*'    => 'required|max:250',
+            'card_heading.*' => 'required|max:250',
+            'card_text.*'    => 'required|max:500',
+            'story'          => 'required|max:5000',
+        ], [
+            'card_icon.*.required'    => 'Card logo is required',
+            'card_heading.*.required' => 'Card heading is required',
+            'card_text.*.required'    => 'Card text is required',
+        ]);
         AboutUs::updateAboutUs($request);
         Swal::success([
             'title' => 'About us updated successfully.',

@@ -17,12 +17,12 @@ class AboutUs extends Model
     public static function storeAboutUs($request)
     {
         $aboutUs = new AboutUs();
-        $aboutUs->mission = $request->mission;
-        $aboutUs->vision = $request->vision;
-        $aboutUs->card_icon = $request->card_icon ?? [];
-        $aboutUs->card_heading = $request->card_heading ?? [];
-        $aboutUs->card_text = $request->card_text ?? [];
-        $aboutUs->story = $request->story;
+        $aboutUs->mission       = $request->mission;
+        $aboutUs->vision        = $request->vision;
+        $aboutUs->card_icon     = $request->card_icon ?? [];
+        $aboutUs->card_heading  = $request->card_heading ?? [];
+        $aboutUs->card_text     = $request->card_text ?? [];
+        $aboutUs->story         = $request->story;
         $aboutUs->save();
     }
 
@@ -30,12 +30,12 @@ class AboutUs extends Model
         self::$aboutUs = self::first(); // get the first (only) record
 
         if (self::$aboutUs) {
-            self::$aboutUs->mission = $request->mission;
-            self::$aboutUs->vision = $request->vision;
-            self::$aboutUs->card_icon = $request->card_icon ?? [];
-            self::$aboutUs->card_heading = $request->card_heading ?? [];
-            self::$aboutUs->card_text = $request->card_text ?? [];
-            self::$aboutUs->story = $request->story;
+            self::$aboutUs->mission         = $request->mission;
+            self::$aboutUs->vision          = $request->vision;
+            self::$aboutUs->card_icon       = $request->card_icon ?? [];
+            self::$aboutUs->card_heading    = $request->card_heading ?? [];
+            self::$aboutUs->card_text       = $request->card_text ?? [];
+            self::$aboutUs->story           = $request->story;
             self::$aboutUs->save();
         }
     }
