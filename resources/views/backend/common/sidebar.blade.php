@@ -286,7 +286,7 @@
                                 <h3>More</h3>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="#">
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route('admin.contact-us') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="side-menu__icon"
                                         viewBox="0 0 24 24"

@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\AboutUsController;
 use App\Http\Controllers\backend\BrochureController;
 use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\ClientController as BackendClientController;
+use App\Http\Controllers\backend\ContactUsController;
 use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\GalleryController as BackendGalleryController;
 use App\Http\Controllers\backend\MessageController;
@@ -196,5 +197,13 @@ Route::middleware('auth:admin')->group(function () {
     // for brochure 
     Route::get('/admin/brochure', [BrochureController::class, 'index'])->name('admin.brochure');
     Route::post('/admin/brochure/upload', [BrochureController::class, 'upload'])->name('admin.add.brochure');
+
+
+    // fot contact us
+    Route::get('/admin/contact-us', [ContactUsController::class, 'index'])->name('admin.contact-us');
+    Route::post('/admin/store/contact-us', [ContactUsController::class, 'store'])->name('admin.store.contact-us');
+    Route::post('/admin/update/contact-us', [ContactUsController::class, 'update'])->name('admin.update.contact-us');
+    Route::post('/admin/delete/contact-us', [ContactUsController::class, 'delete'])->name('admin.delete.contact-us');
+
 
 });
