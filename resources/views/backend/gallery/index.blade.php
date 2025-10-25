@@ -72,7 +72,6 @@
                                                         </ul>
                                                     </div>
                                                 </td>
-                                                {{-- <td>active</td> --}}
                                                 <td class="text-center">
                                                     <button type="button" 
                                                         class="btn btn-outline-primary showImageBtn me-2" 
@@ -115,6 +114,9 @@
                                 <div>
                                     {{-- <input type="file" name="gallery_image" accept=" image/jpeg, image/png, image/jpg" /> --}}
                                     <input id="" name="gallery_image" type="file" class="dropify" data-height="200" />
+                                    @error('gallery_image')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -152,16 +154,12 @@
 @if ($errors->any())
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            @if(! $content) 
-                var myModal = new bootstrap.Modal(document.getElementById('addContent'));
-                myModal.show();
-            @else
-                var myModal = new bootstrap.Modal(document.getElementById('editContent'));
-                myModal.show();
-            @endif
+            var myModal = new bootstrap.Modal(document.getElementById('modalToggle'));
+            myModal.show();
         });
     </script>
 @endif
+
 
 
 

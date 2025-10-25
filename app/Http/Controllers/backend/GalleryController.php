@@ -17,6 +17,9 @@ class GalleryController extends Controller
     }
 
     public static function store(Request $request){
+        $request->validate([
+            'gallery_image' => 'required'
+        ]);
         Gallery::addToGallery($request);
         Swal::success([
             'title' => 'Gallery image added successfully.',
@@ -34,10 +37,10 @@ class GalleryController extends Controller
         return back();
     }
 
-    public static function view(String $id){
-        $gallery = Gallery::findOrFail($id);
+    // public static function view(String $id){
+    //     $gallery = Gallery::findOrFail($id);
         
-    }
+    // }
 
     // store active status to db 
     public function changeStatus(Request $request, $id){
