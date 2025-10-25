@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\ContentController;
 use App\Http\Controllers\backend\GalleryController as BackendGalleryController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\backend\ServedIndustriesController;
+use App\Http\Controllers\backend\ServiceController as BackendServiceController;
 use App\Http\Controllers\backend\SocialLinkController;
 use App\Http\Controllers\backend\SuccessStoriesController;
 use App\Http\Controllers\backend\TechnologiesController;
@@ -212,4 +213,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/store/social-links', [SocialLinkController::class, 'store'])->name('admin.store.social-links');
     Route::post('/admin/update/social-links', [SocialLinkController::class, 'update'])->name('admin.update.social-links');
     Route::post('/admin/delete/social-links', [SocialLinkController::class, 'delete'])->name('admin.delete.social-links');
+
+    // for service section 
+    Route::get('/admin/add/service', [BackendServiceController::class, 'add'])->name('admin.add.service');
 });
