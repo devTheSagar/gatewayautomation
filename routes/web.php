@@ -216,4 +216,10 @@ Route::middleware('auth:admin')->group(function () {
 
     // for service section 
     Route::get('/admin/add/service', [BackendServiceController::class, 'add'])->name('admin.add.service');
+    Route::post('/admin/store/service', [BackendServiceController::class, 'store'])->name('admin.store.service');
+    Route::get('/admin/all/service', [BackendServiceController::class, 'index'])->name('admin.all.service');
+    // route for change status 
+    Route::post('/admin/service/status/{id}', [BackendServiceController::class, 'changeStatus'])->name('admin.service.changeStatus');
+    Route::get('/admin/service/{id}', [BackendServiceController::class, 'show'])->name('admin.show.service');
+
 });

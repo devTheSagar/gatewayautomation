@@ -253,7 +253,7 @@
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Services</a></li>
                                     <li><a href="{{ route('admin.add.service') }}" class="slide-item">Add service</a></li>
-                                    <li><a href="maps2.html" class="slide-item">All services</a></li>
+                                    <li><a href="{{ route('admin.all.service') }}" class="slide-item">All services</a></li>
                                 </ul>
                             </li>
                             <li class="slide">

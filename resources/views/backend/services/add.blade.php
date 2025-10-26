@@ -40,7 +40,7 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <form action="#" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.store.service') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="service_name" class="form-label">Service Name</label>
@@ -91,9 +91,9 @@
 
 
                                 <div class="form-group">
-                                    <label for="carousel_heading" class="form-label">Conclusion</label>
-                                    <textarea class="form-control @error('carousel_heading') is-invalid @enderror" name="carousel_heading" maxlength="2000" id="carousel_heading" rows="3">{{ old('carousel_heading') }}</textarea>
-                                    @error('carousel_heading')
+                                    <label for="conclusion" class="form-label">Conclusion</label>
+                                    <textarea class="form-control @error('conclusion') is-invalid @enderror" name="conclusion" maxlength="2000" id="conclusion" rows="3">{{ old('conclusion') }}</textarea>
+                                    @error('conclusion')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
