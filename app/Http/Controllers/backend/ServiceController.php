@@ -69,4 +69,20 @@ class ServiceController extends Controller
         return redirect()->route('admin.all.service');
     }
 
+
+
+    public static function destroy($id)
+    {
+        // Delete the service and its images
+        Service::deleteService($id);
+
+        Swal::success([
+            'title' => 'Service deleted successfully',
+            'timer' => 2000
+        ]);
+
+        return back();
+    }
+
+
 }

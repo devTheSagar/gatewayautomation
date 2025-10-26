@@ -67,7 +67,7 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
 
-                                    <form action="#" method="POST" class="d-inline">
+                                    <form action="{{ route('admin.delete.service', $service->id) }}" method="POST" class="d-inline">
                                         @csrf @method('DELETE')
                                         <button class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this service?')">
                                             <i class="fa fa-trash"></i>

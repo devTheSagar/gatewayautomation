@@ -224,4 +224,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/edit/service/{id}', [BackendServiceController::class, 'edit'])->name('admin.edit.service');
     // Update service (form submission)
     Route::put('/admin/update/service/{id}', [BackendServiceController::class, 'update'])->name('admin.update.service');
+    Route::delete('/admin/delete/service/{id}', [BackendServiceController::class, 'destroy'])->name('admin.delete.service');
+
 });
