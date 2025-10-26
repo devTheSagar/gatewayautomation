@@ -10,7 +10,7 @@
             <div class="page-header">
                 <div><h1 class="page-title">Services</h1></div>
                 <div class="ms-auto">
-                    <a href="#" class="btn btn-primary">
+                    <a href="{{ route('admin.add.service') }}" class="btn btn-primary">
                         <i class="fa fa-plus"></i> Add New
                     </a>
                 </div>
