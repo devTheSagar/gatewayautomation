@@ -48,4 +48,25 @@ class ServiceController extends Controller
             'service' => $service
         ]);
     }
+
+    public static function edit(String $id){
+        $service = Service::findOrFail($id);
+        return view('backend.services.edit', [
+            'service' => $service
+        ]);
+    }
+
+    // app/Http/Controllers/backend/ServiceController.php
+
+    public static function update(Request $request, String $id){
+        // Update service using the model method
+        Service::updateService($request, $id);
+        // Success message (SweetAlert)
+        Swal::success([
+            'title' => 'Service updated successfully',
+            'timer' => 2000
+        ]);
+        return redirect()->route('admin.all.service');
+    }
+
 }

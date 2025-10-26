@@ -221,5 +221,7 @@ Route::middleware('auth:admin')->group(function () {
     // route for change status 
     Route::post('/admin/service/status/{id}', [BackendServiceController::class, 'changeStatus'])->name('admin.service.changeStatus');
     Route::get('/admin/service/{id}', [BackendServiceController::class, 'show'])->name('admin.show.service');
-
+    Route::get('/admin/edit/service/{id}', [BackendServiceController::class, 'edit'])->name('admin.edit.service');
+    // Update service (form submission)
+    Route::put('/admin/update/service/{id}', [BackendServiceController::class, 'update'])->name('admin.update.service');
 });

@@ -63,7 +63,7 @@
                                         <i class="fa fa-eye"></i>
                                     </a>
 
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <a href="{{ route('admin.edit.service', $service->id) }}" class="btn btn-outline-secondary btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
 
