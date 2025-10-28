@@ -30,7 +30,7 @@
 
                         
                         <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
-                            <a href="{{ asset('frontend/assets/img/brochure/Gateway_Brochure.pdf') }}" 
+                            <a href="{{ $brochure->brochure ?? 'No brochure found' }}" 
                             class="btn btn-primary" 
                             download="Gateway_Brochure.pdf">
                                 <i class="fas fa-download me-2"></i> Download Brochure
@@ -47,9 +47,7 @@
                             </div>
                             <h5 class="card-title nunito-sans-300" style="color: rgb(75, 75, 75)">Address</h5>
                             <p class="card-text nunito-sans-300" style="font-size: 1.1rem">
-                                Flat# E8, House# 3/43/A <br>
-                                Nirban Shantikunja, Sharakunja, Sultanganj <br>
-                                Rayer Bazar, Dhaka-1209, Bangladesh
+                                {{ $contactUs->address }}
                             </p>
                         </div>
 
@@ -63,7 +61,7 @@
                             <h5 class="card-title nunito-sans-300" style="color: rgb(75, 75, 75)">Email Us</h5>
                             <p class="card-text nunito-sans-300" style="font-size: 1.1rem">
                                 Drop us an email at <br>
-                                <a href="mailto:info@gatewayautomations.com" style="font-size: 1.2rem">info@gatewayautomations.com</a>
+                                <a href="mailto:info@gatewayautomations.com" style="font-size: 1.2rem">{{ $contactUs->email }}</a>
                                 <br> We usually respond within 24 hours.
                             </p>
                         </div>
@@ -78,15 +76,15 @@
                             <h5 class="card-title nunito-sans-300" style="color: rgb(75, 75, 75)">Call Us</h5>
                             <p class="card-text nunito-sans-300" style="font-size: 1.1rem">
                                 Our experts are available <br>
-                                <strong>Saturday – Thursday</strong><br>
-                                <strong>10:00 AM – 6:00 PM (UTC)</strong>
+                                <strong>{{ $contactUs->day_to_day }}</strong><br>
+                                <strong>{{ $contactUs->time_to_time }} (UTC)</strong>
                             </p>
                             <ul class="hotline list-unstyled text-center">
                                 <li>
-                                    <a href="tel:+880241022561" style="font-size: 1.1rem">TNT: <span>+8802 41022561</span></a>
+                                    <a href="tel:+880241022561" style="font-size: 1.1rem">TNT: <span>+{{ $contactUs->tnt }}</span></a>
                                 </li>
                                 <li>
-                                    <a href="tel:+8801324258751" style="font-size: 1.1rem">Hotline: <span>+880 1324 258751</span></a>
+                                    <a href="tel:+8801324258751" style="font-size: 1.1rem">Hotline: <span>+{{ $contactUs->mobile }}</span></a>
                                 </li>
                             </ul>
                         </div>

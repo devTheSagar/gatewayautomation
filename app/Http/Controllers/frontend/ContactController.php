@@ -3,14 +3,21 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brochure;
 use App\Models\Contact;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use SweetAlert2\Laravel\Swal;
 
 class ContactController extends Controller
 {
     public function index(){
-        return view('frontend.contact.index');
+        $contactUs = ContactUs::first();
+        $brochure = Brochure::first();
+        return view('frontend.contact.index', [
+            'contactUs' => $contactUs,
+            'brochure' => $brochure
+        ]);
     }
 
     public function sendMessage(Request $request){
