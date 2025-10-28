@@ -17,12 +17,13 @@
             <!-- PAGE-HEADER -->
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Messages</h1>
+                    <h1 class="page-title">Carousels</h1>
                 </div>
                 <div class="ms-auto pageheader-btn">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Messages</li>
+                        <li class="breadcrumb-item" aria-current="page">Carousel</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Carousel</li>
                     </ol>
                 </div>
             </div>
@@ -33,7 +34,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header border-bottom d-flex">
-                            <h3 class="card-title">All Messages</h3>
+                            <h3 class="card-title">All Carousels</h3>
                             <a href="{{ route('admin.add.carousel') }}" class="btn btn-primary ms-auto">
                                 <i class="fa fa-plus"></i> Add New
                             </a>

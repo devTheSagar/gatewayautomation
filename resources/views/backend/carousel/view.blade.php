@@ -20,7 +20,8 @@
                 </div>
                 <div class="ms-auto pageheader-btn">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.all.carousel') }}">Carousel</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Carousel</li>
                         <li class="breadcrumb-item active" aria-current="page">View Carousel</li>
                     </ol>
                 </div>
