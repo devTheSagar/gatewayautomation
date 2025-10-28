@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\CarouselController;
 use App\Http\Controllers\backend\ClientController as BackendClientController;
 use App\Http\Controllers\backend\ContactUsController;
 use App\Http\Controllers\backend\ContentController;
+use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\GalleryController as BackendGalleryController;
 use App\Http\Controllers\backend\MessageController;
 use App\Http\Controllers\backend\ServedIndustriesController;
@@ -89,9 +90,11 @@ Route::post('admin/logout', [AdminAuthController::class, 'logout'])->name('admin
 
 // Admin dashboard (protected)
 Route::middleware('auth:admin')->group(function () {
-    Route::get('admin/dashboard', function () {
-        return view('backend.home');
-    })->name('admin.dashboard');
+    // Route::get('admin/dashboard', function () {
+    //     return view('backend.home');
+    // })->name('admin.dashboard');
+    
+    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/admin/messages', [MessageController::class, 'index'])->name('admin.messages');
     Route::get('/admin/message/{id}', [MessageController::class, 'view'])->name('admin.view.messages');

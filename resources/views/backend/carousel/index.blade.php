@@ -59,8 +59,8 @@
                                                     <img src="{{ asset($carousel->carousel_image) }}" alt="carousel image" height="50px" width="50px" style="border-radius: 50%; border:1px solid rgb(206, 206, 206)">
                                                 </td>
                                                 {{-- <td>{{ $carousel->carousel_heading }}</td> --}}
-                                                <td>{{ Str::limit($carousel->carousel_heading, 20, '...') }}</td>
-                                                <td><a href="{{ $carousel->learn_more_link }}" target="_blank">{{ Str::limit($carousel->learn_more_link, 20, '...') }}</a></td>
+                                                <td>{{ Str::limit($carousel->carousel_heading, 20, '...') ?? 'N/A' }}</td>
+                                                <td><a href="{{ $carousel->learn_more_link }}" target="_blank">{{ Str::limit($carousel->learn_more_link, 20, '...') ?? 'N/A' }}</a></td>
 
                                                 {{-- active stataus  --}}
                                                 <td class="text-center">

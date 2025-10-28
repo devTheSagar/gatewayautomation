@@ -36,6 +36,9 @@
                         <div class="card-header border-bottom d-flex">
                             <h3 class="card-title">Carousel edit form</h3>
                             <div class="ms-auto">
+                                <a href="{{ route('admin.view.carousel', $carousel->id) }}" class="btn btn-success ms-auto">
+                                    <i class="fa fa-eye"></i> View Carousel
+                                </a>
                                 <a href="{{ route('admin.add.carousel') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add New
                                 </a>
@@ -61,7 +64,7 @@
                                 <!-- heading  -->
                                 <div class="form-group">
                                     <label for="carousel_heading" class="form-label">Carousel heading</label>
-                                    <textarea class="form-control @error('carousel_heading') is-invalid @enderror" name="carousel_heading" maxlength="2000" id="carousel_heading" rows="3">{{ $carousel->carousel_heading }}</textarea>
+                                    <textarea class="form-control @error('carousel_heading') is-invalid @enderror" name="carousel_heading" maxlength="2000" id="carousel_heading" rows="3">{{ old('carousel_heading', $carousel->carousel_heading) }}</textarea>
                                     @error('carousel_heading')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -69,14 +72,14 @@
                                 <!-- link  -->
                                 <div class="form-group">
                                     <label for="learn_more_link" class="form-label">Learn more link</label>
-                                    <textarea class="form-control @error('learn_more_link') is-invalid @enderror" name="learn_more_link" maxlength="2000" id="learn_more_link" rows="3">{{ $carousel->learn_more_link }}</textarea>
+                                    <textarea class="form-control @error('learn_more_link') is-invalid @enderror" name="learn_more_link" maxlength="2000" id="learn_more_link" rows="3">{{ old('learn_more_link', $carousel->learn_more_link) }}</textarea>
                                     @error('learn_more_link')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
 
                                 <!-- submit button -->
-                                <button type="submit" class="btn btn-primary w-50 mt-3">Save</button>
+                                <button type="submit" class="btn btn-primary w-50 mt-3">Update</button>
                             </form>
                             
                         </div>

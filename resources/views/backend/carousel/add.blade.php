@@ -35,8 +35,8 @@
                     <div class="card">
                         <div class="card-header border-bottom d-flex">
                             <h3 class="card-title">Carousel form</h3>
-                            <a href="{{ route('admin.all.carousel') }}" class="btn btn-success ms-auto">
-                                <i class="fa fa-eye"></i> See All
+                            <a href="{{ route('admin.all.carousel') }}" class="btn btn-secondary ms-auto">
+                                <i class="fa fa-list"></i> All Carousels
                             </a>
                         </div>
                         <div class="card-body">

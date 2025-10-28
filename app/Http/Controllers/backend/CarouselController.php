@@ -70,12 +70,23 @@ class CarouselController extends Controller
 
     // update the edits 
     public static function update(Request $request, String $id){
+
+        $carousel = Carousel::findOrFail($id); // <--- FIRST get the record
+
+        $request->validate([
+            'carousel_image'   => $carousel->carousel_image 
+                ? 'nullable|mimes:png,jpg,jpeg'    // allow old image to stay
+                : 'required|mimes:png,jpg,jpeg',   // require only if no image exists
+            'carousel_heading'  => 'nullable|string|max:2000',
+            'learn_more_link'   => 'nullable|url',
+        ]);
+
         Carousel::updateCarousel($request, $id);
         Swal::success([
             'title' => 'Carousel updated successfully.',
             'timer' => 2000,
         ]);
-        return back();
+        return redirect()->route('admin.all.carousel');
     }
 
     // delete data 
