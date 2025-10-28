@@ -39,14 +39,14 @@
 
                             <div class="mb-3">
                                 @if($content)
-                                    <button class="m-1 btn btn-warning" data-bs-toggle="modal" data-bs-target="#editContent">Edit Content</button>
+                                    <button class="m-1 btn btn-warning" data-bs-toggle="modal" data-bs-target="#editContent"><i class="fa fa-edit"></i> Edit Content</button>
                                     <form action="{{ route('admin.delete.content') }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this content?');">
                                         @csrf
-                                        <button type="submit" class="m-1 btn btn-danger">Delete Content</button>
+                                        <button type="submit" class="m-1 btn btn-danger"><i class="fa fa-trash"></i> Delete Content</button>
                                     </form>
 
                                 @else
-                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContent" href="javascript:void(0)">Add Content</a>
+                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContent" href="javascript:void(0)"><i class="fa fa-plus"></i> Add Content</a>
                                 @endif
                             </div>
 
@@ -83,7 +83,7 @@
                             @csrf
                             <div class="modal-header">
                                 <h6 class="modal-title">Add Content</h6>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group mb-3">
@@ -110,7 +110,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit">Save</button>
-                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
@@ -126,7 +126,7 @@
                             @csrf
                             <div class="modal-header">
                                 <h6 class="modal-title">Edit Content</h6>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group mb-3">
@@ -153,7 +153,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit">Update</button>
-                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
