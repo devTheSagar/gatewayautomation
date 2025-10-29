@@ -15,20 +15,6 @@ class Service extends Model
         'conclusion',
         'slug'
     ];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($service) {
-            $service->slug = Str::slug($service->service_name);
-        });
-
-        static::updating(function ($service) {
-            $service->slug = Str::slug($service->service_name);
-        });
-    }
-
     
 
     // Cast sections JSON column automatically to array
@@ -47,6 +33,17 @@ class Service extends Model
         self::$service->service_name = $request->service_name;
         self::$service->service_logo = $request->service_logo;
         self::$service->conclusion = $request->conclusion;
+
+
+        // Generate slug and ensure it's unique
+        $slug = Str::slug($request->service_name); // convert name to slug
+        $count = Service::where('slug', $slug)->count();
+        if ($count > 0) {
+            $slug .= '-' . ($count + 1); // append number if duplicate
+        }
+        self::$service->slug = $slug;
+
+        
 
         $sections = [];
 
@@ -103,6 +100,12 @@ class Service extends Model
         self::$service->service_name = $request->service_name;
         self::$service->service_logo = $request->service_logo;
         self::$service->conclusion = $request->conclusion;
+
+        // UNIQUE SLUG FOR UPDATE
+        $slug = Str::slug($request->service_name);
+        $count = Service::where('slug', $slug)->where('id', '!=', $id)->count();
+        if ($count > 0) $slug .= '-' . ($count + 1);
+        self::$service->slug = $slug;
 
         $sections = [];
 

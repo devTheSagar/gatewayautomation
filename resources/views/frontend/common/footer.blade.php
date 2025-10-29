@@ -35,7 +35,9 @@
                             <h5 class="footer-title mb-3">Services</h5>
                             <ul class="list-unstyled footer-nav-list mb-0 row">
                                 @php
-                                    $chunks = $allServices->chunk(ceil($allServices->count() / 2));
+                                    // Filter only active services
+                                    $activeServices = $allServices->where('status', 1);
+                                    $chunks = $activeServices->chunk(ceil($activeServices->count() / 2));
                                 @endphp
 
                                 @foreach($chunks as $chunk)
@@ -51,6 +53,7 @@
                                 @endforeach
                             </ul>
                         </div>
+
 
 
                         <!-- Contact Info -->
