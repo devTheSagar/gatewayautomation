@@ -143,7 +143,7 @@
                     <!-- Service Items -->
                     @foreach ($services as $service)
                         <div class="col-6 col-md-4 col-lg-2 mb-4" data-aos="zoom-in" data-aos-delay="50">
-                            <a href="{{ route('service.view', $service->id) }}" class="text-decoration-none">
+                            <a href="{{ route('service.view', $service->slug) }}" class="text-decoration-none">
                                 <div class="service-card text-center p-3 shadow-sm h-100 rounded-4 bg-white hover-shadow">
                                     {{-- <i class="bi bi-cash-coin display-5 mb-3 float-icon"></i> --}}
                                     {!! $service->service_logo !!}

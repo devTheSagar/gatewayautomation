@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +13,23 @@ class Service extends Model
         'service_logo',
         'sections',
         'conclusion',
+        'slug'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($service) {
+            $service->slug = Str::slug($service->service_name);
+        });
+
+        static::updating(function ($service) {
+            $service->slug = Str::slug($service->service_name);
+        });
+    }
+
+    
 
     // Cast sections JSON column automatically to array
     protected $casts = [

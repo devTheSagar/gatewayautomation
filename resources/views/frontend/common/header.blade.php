@@ -81,16 +81,18 @@
                                 <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
                                     <div class="dropdown-grid rounded-custom width-half">
                                         <div class="dropdown-grid-item">
-                                            <!-- <h6 class="drop-heading">Customize Enterprise Resource Planning (ERP)</h6> -->
-                                            @foreach($allServices as $index => $service)
-                                                <a href="{{ route('service.view', $service->id) }}" class="dropdown-link {{ Route::is('service.view') && request()->id == $service->id ? 'active' : '' }}">
-                                                    <span class="demo-list btn-danger rounded text-white fw-bold">{{ $index + 1 }}</span>
-                                                    <div class="dropdown-info">
-                                                        <div class="drop-title">{{ $service->service_name }}</div>
-                                                    </div>
-                                                </a>
-                                            @endforeach
-                                        </div>
+    <!-- Loop only active services -->
+    @foreach($allServices->where('status', 1) as $index => $service)
+        <a href="{{ route('service.view', $service->slug) }}" 
+           class="dropdown-link {{ Route::is('service.view') && request()->slug == $service->slug ? 'active' : '' }}">
+            <span class="demo-list btn-danger rounded text-white fw-bold">{{ $index + 1 }}</span>
+            <div class="dropdown-info">
+                <div class="drop-title">{{ $service->service_name }}</div>
+            </div>
+        </a>
+    @endforeach
+</div>
+
 
                                     </div>
                                 </div>
@@ -144,8 +146,8 @@
                                             @foreach($allServices as $index => $service)
                                                 <li>
                                                      
-                                                    <a href="{{ route('service.view', $service->id) }}" 
-                                                    class="nav-link d-flex align-items-center {{ Route::is('service.view') && request()->id == $service->id ? 'active' : '' }}">
+                                                    <a href="{{ route('service.view', $service->slug) }}" 
+                                                    class="nav-link d-flex align-items-center {{ Route::is('service.view') && request()->id == $service->slug ? 'active' : '' }}">
                                                         <div>
                                                             <span class="demo-list">{{ $index + 1 }}</span>
                                                         </div>

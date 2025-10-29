@@ -18,6 +18,7 @@ return new class extends Migration
             $table->json('sections')->nullable();       // Store all sections and their features as JSON
             $table->text('conclusion')->nullable(); // Conclusion
             $table->tinyInteger('status')->default(1)->comment('0=inactive, 1=active');
+            $table->text('slug')->unique();
             $table->timestamps();
         });
     }

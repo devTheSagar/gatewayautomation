@@ -42,7 +42,7 @@
                                     <div class="col-6 nunito-sans-100">
                                         @foreach($chunk as $service)
                                             <li>
-                                                <a href="{{ route('service.view', $service->id) }}" class="footer-link">
+                                                <a href="{{ route('service.view', $service->slug) }}" class="footer-link">
                                                     {{ $service->service_name }}
                                                 </a>
                                             </li>

@@ -51,7 +51,7 @@ Route::get('/online-payment', [PaymentController::class, 'index'])->name('paymen
 
 // service page routes
 
-Route::get('/service/{id}', [ServiceController::class, 'index'])->name('service.view');
+Route::get('/service/{slug}', [ServiceController::class, 'index'])->name('service.view');
 
 
 Route::get('/service/account-finance-management-system', [ServiceController::class, 'accountAndFinance'])->name('service.account-and-finance');

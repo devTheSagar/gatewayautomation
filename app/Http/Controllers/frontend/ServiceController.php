@@ -9,12 +9,16 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
 
-    public static function index(String $id){
-        $service = Service::findOrFail($id);
+    public static function index(string $slug){
+        $service = Service::where('slug', $slug)
+                        ->where('status', 1)  // only active
+                        ->firstOrFail();      // return single model or 404
+
         return view('frontend.services.index', [
             'service' => $service
         ]);
     }
+
 
     public function accountAndFinance(){
         return view('frontend.services.account-and-finance.index');
