@@ -2517,3 +2517,36 @@ margin: 3px 0 !important;
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
+
+
+
+.offcanvas .main-menu .nav-link {
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.offcanvas .main-menu .nav-link:hover {
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.offcanvas .main-menu .nav-link.active {
+    background: #e7e7e7;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.offcanvas .main-menu .collapse .nav-link {
+    padding-left: 2rem;
+    font-size: 0.95rem;
+}
+
+.demo-list {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 24px;
+}

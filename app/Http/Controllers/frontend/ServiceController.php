@@ -3,10 +3,19 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+
+    public static function index(String $id){
+        $service = Service::findOrFail($id);
+        return view('frontend.services.index', [
+            'service' => $service
+        ]);
+    }
+
     public function accountAndFinance(){
         return view('frontend.services.account-and-finance.index');
     }

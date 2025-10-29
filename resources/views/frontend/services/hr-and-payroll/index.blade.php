@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('title')
-  Services - Hr & Payroll Management
+  Service
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-12 heading-sec">
-                        <h1 class="display-5 fw-bold">Human Resource Administration & Payroll Management</h1>
+                        <h1 class="display-5 fw-bold">{{ $service->service_name }}</h1>
                         <p class="lead">We provide the complete solution of your business with the GATEWAY- ERP system.</p>
                     </div>
                 </div>
@@ -19,6 +19,38 @@
         </section>
         <!--page header section end-->
     </div>
+
+
+
+
+
+    @if(!empty($service->sections))
+        @foreach($service->sections as $section)
+            <div class="mb-5">
+                <h2>{{ $section['heading'] }}</h2>
+                <p>{{ $section['content'] }}</p>
+
+                {{-- Features List --}}
+                @if(!empty($section['features']))
+                    <ul>
+                        @foreach($section['features'] as $feature)
+                            <li>{{ $feature }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+
+                {{-- Section Image --}}
+                @if(!empty($section['image']))
+                    <img src="{{ asset($section['image']) }}" alt="{{ $section['heading'] }}" class="img-fluid rounded mt-3">
+                @endif
+            </div>
+        @endforeach
+    @endif
+    
+
+
+
+
     <!-- Human Resource Administration & Payroll Management Section Start -->
     <section class="feature-section pt-60 pb-120 bg-light">
         <div class="container">

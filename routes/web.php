@@ -49,7 +49,11 @@ Route::get('/online-payment', [PaymentController::class, 'index'])->name('paymen
 
 
 
-// service page routes 
+// service page routes
+
+Route::get('/service/{id}', [ServiceController::class, 'index'])->name('service.view');
+
+
 Route::get('/service/account-finance-management-system', [ServiceController::class, 'accountAndFinance'])->name('service.account-and-finance');
 Route::get('/service/human-resource-administration-payroll-management', [ServiceController::class, 'hrAndPayroll'])->name('service.hr-and-payroll');
 Route::get('/service/real-estate-management-system', [ServiceController::class, 'realEstateAndProperty'])->name('service.real-estate-and-property');

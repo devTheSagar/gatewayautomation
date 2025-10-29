@@ -9,6 +9,7 @@ use App\Models\Client;
 use App\Models\ContactUs;
 use App\Models\Content;
 use App\Models\ServedIndustries;
+use App\Models\Service;
 use App\Models\SocialLink;
 use App\Models\SuccessStories;
 use App\Models\Technologies;
@@ -28,6 +29,7 @@ class HomeController extends Controller
         $brochure = Brochure::first();
         $socialLink = SocialLink::first();
         $contactUs = ContactUs::first();
+        $services = Service::where('status', 1)->latest()->get();
 
         return view('frontend.home', [
             'carousels'         => $carousels,
@@ -39,7 +41,8 @@ class HomeController extends Controller
             'clients'           => $clients,
             'brochure'          => $brochure,
             'socialLink'        => $socialLink,
-            'contactUs'         => $contactUs
+            'contactUs'         => $contactUs,
+            'services'          => $services
         ]);
     }
 }
