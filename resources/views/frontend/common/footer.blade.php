@@ -34,31 +34,24 @@
                         <div class="col-md-5 mt-lg-3 col-lg-5 mb-4 mb-md-0">
                             <h5 class="footer-title mb-3">Services</h5>
                             <ul class="list-unstyled footer-nav-list mb-0 row">
-                                <div class="col-6 nunito-sans-100">
-                                    <li><a href="{{ route('service.account-and-finance') }}" class="footer-link">Account & Finance Management System</a></li>
-                                    <li><a href="{{ route('service.hr-and-payroll') }}" class="footer-link">HR Administration & Payroll</a></li>
-                                    <li><a href="{{ route('service.real-estate-and-property') }}" class="footer-link">Real Estate & Property</a></li>
-                                    <li><a href="{{ route('service.trading-business') }}" class="footer-link">Trading Business</a></li>
-                                    <li><a href="{{ route('service.supply-chain-management') }}" class="footer-link">Supply Chain Management</a></li>
-                                    <li><a href="{{ route('service.mobile-management-service') }}" class="footer-link">Mobile Phone Management System</a></li>
-                                    <li><a href="{{ route('service.procurement-inventory') }}" class="footer-link">Procurement & Inventory Management System</a></li>
-                                    <li><a href="{{ route('service.vehicle-management') }}" class="footer-link">Vehicle Management System</a></li>
-                                    <li><a href="{{ route('service.softwate-development') }}" class="footer-link">Software Development</a></li>
-                                    <li><a href="{{ route('training-consultancy') }}" class="footer-link">Training & Consultancy</a></li>
-                                </div>
-                                <div class="col-6">
-                                    <li><a href="{{ route('service.manufacturing') }}" class="footer-link">Manufacturing</a></li>
-                                    <li><a href="{{ route('service.education-management') }}" class="footer-link">Education Management</a></li>
-                                    <li><a href="{{ route('service.tea-estate-management') }}" class="footer-link">Tea Estate Management</a></li>
-                                    <li><a href="{{ route('service.app-website') }}" class="footer-link">Mobile App & Website</a></li>
-                                    <li><a href="{{ route('service.customer-service') }}" class="footer-link">Customer Service & Registration</a></li>
-                                    <li><a href="{{ route('service.architectural-eng') }}" class="footer-link">Architectural & Engineering Management System</a></li>
-                                    <li><a href="{{ route('service.sales-telesales') }}" class="footer-link">Sales & Telesales Management System</a></li>
-                                    <li><a href="{{ route('service.ites-support') }}" class="footer-link">ITES Support</a></li>
-                                    <li><a href="{{ route('service.cloud-hosting') }}" class="footer-link">Cloud Hosting</a></li>
-                                </div>
+                                @php
+                                    $chunks = $allServices->chunk(ceil($allServices->count() / 2));
+                                @endphp
+
+                                @foreach($chunks as $chunk)
+                                    <div class="col-6 nunito-sans-100">
+                                        @foreach($chunk as $service)
+                                            <li>
+                                                <a href="{{ route('service.view', $service->id) }}" class="footer-link">
+                                                    {{ $service->service_name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </div>
+                                @endforeach
                             </ul>
                         </div>
+
 
                         <!-- Contact Info -->
                         <div class="col-md-6 mt-lg-3 col-lg-3 mb-4 mb-md-0">
