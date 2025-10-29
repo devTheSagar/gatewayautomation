@@ -143,9 +143,12 @@
                                         <ul class="nav flex-column ms-3 mt-2">
                                             @foreach($allServices as $index => $service)
                                                 <li>
+                                                     
                                                     <a href="{{ route('service.view', $service->id) }}" 
                                                     class="nav-link d-flex align-items-center {{ Route::is('service.view') && request()->id == $service->id ? 'active' : '' }}">
-                                                        <span class="demo-list bg-danger text-white rounded me-2">{{ $index + 1 }}</span> 
+                                                        <div>
+                                                            <span class="demo-list">{{ $index + 1 }}</span>
+                                                        </div>
                                                         {{ $service->service_name }}
                                                     </a>
                                                 </li>
