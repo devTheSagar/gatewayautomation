@@ -15,7 +15,7 @@
                                 {{-- brochure download button  --}}
                                 <div class="d-flex align-items-center mt-3">
                                     <i class="bi bi-download me-2" aria-hidden="true"></i>
-                                    <a href="{{ asset('frontend/assets/img/brochure/Gateway_Brochure.pdf') }}" class="footer-link m-0" download="Gateway_Brochure.pdf">
+                                    <a href="{{ $brochure->brochure }}" class="footer-link m-0" download="Gateway_Brochure.pdf">
                                         <i><b>Download Brochure</b></i>
                                     </a>
                                 </div>
@@ -63,11 +63,10 @@
                         <!-- Contact Info -->
                         <div class="col-md-6 mt-lg-3 col-lg-3 mb-4 mb-md-0">
                             <h5 class="footer-title mb-3" style="font-size: 1.25rem;">Contact</h5>
-                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>TNT:</strong> +8802 41022561</p>
-                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>Hotline:</strong> +880 1324 258751</p>
+                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>TNT:</strong> +{{ $contactUs->tnt }}</p>
+                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>Hotline:</strong> +{{ $contactUs->mobile }}</p>
                             <p class="text-muted mb-3 contact-address" style="font-size: 0.95rem; line-height: 1.6;">
-                                <strong>Address:</strong> Flat# E8, House# 3/43/A, Nirban Shantikunja, Sharakunja,
-                                Sultanganj, Rayer Bazar, Dhaka-1209, Bangladesh
+                                {{ $contactUs->address }}
                             </p>
 
                             <!-- BASIS Member Section -->
@@ -82,10 +81,10 @@
                             <div class="mt-5">
                                 <h4 class="footer-title mb-3">Follow Us</h4>
                                 <ul class="list-unstyled list-inline mb-0 footer-social-list">
-                                    <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/erpgateway" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/gatewayautomationltd/" class="social-link"><i class="fab fa-instagram"></i></a></li>
-                                    <li class="list-inline-item"><a target="_blank" href="https://twitter.com/GatewayAutomat1" class="social-link"><i class="fab fa-twitter"></i></a></li>
-                                    <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/gateway-automation-ltd-ab2156210" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+                                    <li class="list-inline-item"><a target="_blank" href="{{ $socialLink->facebook ?? '#' }}" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li class="list-inline-item"><a target="_blank" href="{{ $socialLink->instagram ?? '#' }}" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a target="_blank" href="{{ $socialLink->twitter ?? '#' }}" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a target="_blank" href="{{ $socialLink->linkedin ?? '#' }}" class="social-link"><i class="fab fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
