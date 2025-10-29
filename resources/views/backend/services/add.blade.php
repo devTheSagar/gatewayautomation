@@ -49,6 +49,13 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label for="service_logo" class="form-label">Service Logo</label>
+                                    <input class="form-control @error('service_logo') is-invalid @enderror" name="service_logo" type="text" id="service_logo" value="{{ old('service_logo') }}">
+                                    @error('service_logo')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                                 
                                 <!-- Section Container -->
                                 <div id="section-wrapper-container">

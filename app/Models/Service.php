@@ -9,6 +9,7 @@ class Service extends Model
 {
     protected $fillable = [
         'service_name',
+        'service_logo',
         'sections',
         'conclusion',
     ];
@@ -27,6 +28,7 @@ class Service extends Model
         self::$service = new Service();
 
         self::$service->service_name = $request->service_name;
+        self::$service->service_logo = $request->service_logo;
         self::$service->conclusion = $request->conclusion;
 
         $sections = [];
@@ -82,6 +84,7 @@ class Service extends Model
         self::$service = Service::findOrFail($id);
 
         self::$service->service_name = $request->service_name;
+        self::$service->service_logo = $request->service_logo;
         self::$service->conclusion = $request->conclusion;
 
         $sections = [];

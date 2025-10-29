@@ -52,6 +52,10 @@
                                         <th class="bg-light text-end" width="200">Service Name</th>
                                         <td>{{ $service->service_name }}</td>
                                     </tr>
+                                    <tr>
+                                        <th class="bg-light text-end" width="200">Service Logo</th>
+                                        <td>{!! $service->service_logo !!}</td>
+                                    </tr>
 
                                     {{-- section  --}}
                                     <tr>

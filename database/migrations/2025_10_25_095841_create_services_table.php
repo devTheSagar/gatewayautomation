@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('service_name');             // Service name
+            $table->string('service_logo')->nullable(false);
             $table->json('sections')->nullable();       // Store all sections and their features as JSON
             $table->text('conclusion')->nullable(); // Conclusion
             $table->tinyInteger('status')->default(1)->comment('0=inactive, 1=active');
