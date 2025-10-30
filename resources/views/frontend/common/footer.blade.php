@@ -59,10 +59,10 @@
                         <!-- Contact Info -->
                         <div class="col-md-6 mt-lg-3 col-lg-3 mb-4 mb-md-0">
                             <h5 class="footer-title mb-3" style="font-size: 1.25rem;">Contact</h5>
-                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>TNT:</strong> +{{ $contactUs->tnt }}</p>
-                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>Hotline:</strong> +{{ $contactUs->mobile }}</p>
+                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>TNT:</strong> +{{ $contactUs->tnt ?? '' }}</p>
+                            <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>Hotline:</strong> +{{ $contactUs->mobile ?? '' }}</p>
                             <p class="text-muted mb-3 contact-address" style="font-size: 0.95rem; line-height: 1.6;">
-                                {{ $contactUs->address }}
+                                {{ $contactUs->address ?? '' }}
                             </p>
 
                             <!-- BASIS Member Section -->

@@ -91,24 +91,35 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="facebook" class="form-label">Facebook <span class="text-danger">*</span></label>
-                                    <input type="text" name="facebook" class="form-control w-100" id="facebook">
+                                    <input type="text" name="facebook" class="form-control w-100 @error ('facebook') is-invalid @enderror" value="{{ old('facebook', $socialLink->facebook ?? '') }}" id="facebook">
+                                    @error('facebook')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="instagram" class="form-label">Instagram <span class="text-danger">*</span></label>
-                                    <input type="text" name="instagram" class="form-control w-100" id="instagram">
+                                    <input type="text" name="instagram" class="form-control w-100 @error ('instagram') is-invalid @enderror" value="{{ old('instagram', $socialLink->instagram ?? '') }}" id="instagram">
+                                    @error('instagram')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="twitter" class="form-label">Twitter <span class="text-danger">*</span></label>
-                                    <input type="text" name="twitter" class="form-control w-100" id="twitter">
+                                    <input type="text" name="twitter" class="form-control w-100 @error ('twitter') is-invalid @enderror" value="{{ old('twitter', $socialLink->twitter ?? '') }}" id="twitter">
+                                    @error('twitter')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="linkedin" class="form-label">Linkedin <span class="text-danger">*</span></label>
-                                    <input type="text" name="linkedin" class="form-control w-100" id="linkedin">
+                                    <input type="text" name="linkedin" class="form-control w-100 @error ('linkedin') is-invalid @enderror" value="{{ old('linkedin', $socialLink->linkedin ?? '') }}" id="linkedin">
+                                    @error('linkedin')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Save</button>
@@ -133,22 +144,34 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="facebook" class="form-label">Facebook <span class="text-danger">*</span></label>
-                                    <input type="text" name="facebook" class="form-control w-100" value="{{ $socialLink->facebook }}" id="facebook">
+                                    <input type="text" name="facebook" class="form-control w-100 @error ('facebook') is-invalid @enderror" value="{{ old('facebook', $socialLink->facebook ?? '') }}" id="facebook">
+                                    @error('facebook')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="instagram" class="form-label">Instagram <span class="text-danger">*</span></label>
-                                    <input type="text" name="instagram" class="form-control w-100" value="{{ $socialLink->instagram }}" id="instagram">
+                                    <input type="text" name="instagram" class="form-control w-100 @error ('instagram') is-invalid @enderror" value="{{ old('instagram', $socialLink->instagram ?? '') }}" id="instagram">
+                                    @error('instagram')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="twitter" class="form-label">Twitter <span class="text-danger">*</span></label>
-                                    <input type="text" name="twitter" class="form-control w-100" value="{{ $socialLink->twitter }}" id="twitter">
+                                    <input type="text" name="twitter" class="form-control w-100 @error ('twitter') is-invalid @enderror" value="{{ old('twitter', $socialLink->twitter) }}" id="twitter">
+                                    @error('twitter')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="linkedin" class="form-label">Linkedin <span class="text-danger">*</span></label>
-                                    <input type="text" name="linkedin" class="form-control w-100" value="{{ $socialLink->linkedin }}" id="linkedin">
+                                    <input type="text" name="linkedin" class="form-control w-100 @error ('linkedin') is-invalid @enderror" value="{{ old('linkedin', $socialLink->linkedin) }}" id="linkedin">
+                                    @error('linkedin')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 
                             </div>

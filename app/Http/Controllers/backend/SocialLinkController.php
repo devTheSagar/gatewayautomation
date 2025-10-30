@@ -17,6 +17,12 @@ class SocialLinkController extends Controller
     }
 
     public static function store(Request $request){
+        $request->validate([
+            'facebook'  => 'required|url',
+            'instagram' => 'required|url',
+            'twitter'   => 'required|url',
+            'linkedin'  => 'required|url',
+        ]);
         SocialLink::storeSocialLink($request);
         Swal::success([
             'title' => 'Social link details added successfully',
@@ -26,6 +32,12 @@ class SocialLinkController extends Controller
     }
 
     public function update(Request $request){
+        $request->validate([
+            'facebook'  => 'required|url',
+            'instagram' => 'required|url',
+            'twitter'   => 'required|url',
+            'linkedin'  => 'required|url',
+        ]);
         SocialLink::updateSocialLink($request);
         Swal::success([
             'title' => 'Social link details updated successfully.',
