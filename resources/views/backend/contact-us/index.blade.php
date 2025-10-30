@@ -100,28 +100,46 @@
                                 <!-- mission  -->
                                 <div class="form-group">
                                     <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" name="address" maxlength="1000" id="address" rows="3"></textarea>
+                                    <textarea class="form-control @error ('address') is-invalid @enderror" name="address" maxlength="1000" id="address" rows="3">{{ old('address', $contactUs->address ?? '') }}</textarea>
+                                    @error('address')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <!-- email  -->
                                 <div class="form-group">
                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                    <input type="email" name="email" class="form-control w-100" id="email">
+                                    <input class="form-control w-100 @error ('email') is-invalid @enderror" type="email" name="email" value="{{ old('email', $contactUs->email ?? '') }}" id="email">
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="day_to_day" class="form-label">Day to day (day - day) <span class="text-danger">*</span></label>
-                                    <input type="text" name="day_to_day" class="form-control w-100" id="day_to_day">
+                                    <input type="text" name="day_to_day" class="form-control w-100 @error ('day_to_day') is-invalid @enderror" value="{{ old('day_to_day', $contactUs->day_to_day ?? '') }}" id="day_to_day">
+                                    @error('day_to_day')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="time_to_time" class="form-label">Time to time (__:__AM/PM - __:__AM/PM) <span class="text-danger">*</span></label>
-                                    <input type="text" name="time_to_time" class="form-control w-100 w-100" id="time_to_time">
+                                    <input type="text" name="time_to_time" class="form-control w-100 @error ('time_to_time') is-invalid @enderror" value="{{ old('time_to_time', $contactUs->time_to_time ?? '') }}" id="time_to_time">
+                                    @error('time_to_time')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="tnt" class="form-label">TNT <span class="text-danger">*</span></label>
-                                    <input type="number" name="tnt" class="form-control w-100" id="tnt">
+                                    <input type="number" name="tnt" class="form-control w-100 @error ('tnt') is-invalid @enderror" value="{{ old('tnt', $contactUs->tnt ?? '') }}" id="tnt">
+                                    @error('tnt')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile" class="form-label">Mobile <span class="text-danger">*</span></label>
-                                    <input type="number" name="mobile" class="form-control w-100" id="mobile">
+                                    <input type="number" name="mobile" class="form-control w-100 @error ('mobile') is-invalid @enderror" value="{{ old('mobile', $contactUs->mobile ?? '') }}" id="mobile">
+                                    @error('mobile')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -148,28 +166,46 @@
                                     <!-- mission  -->
                                     <div class="form-group">
                                         <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" name="address" maxlength="1000" id="address" rows="3">{{ $contactUs->address }}</textarea>
+                                        <textarea class="form-control @error ('address') is-invalid @enderror" name="address" maxlength="1000" id="address" rows="3">{{ old('address', $contactUs->address ?? '') }}</textarea>
+                                        @error('address')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <!-- email  -->
                                     <div class="form-group">
                                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                        <input type="email" name="email" class="form-control w-100" value="{{ $contactUs->email }}" id="email">
+                                        <input type="email" name="email" class="form-control w-100 @error ('email') is-invalid @enderror" value="{{ old('email', $contactUs->email ?? '') }}" id="email">
+                                        @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="day_to_day" class="form-label">Day to day (day - day) <span class="text-danger">*</span></label>
-                                        <input type="text" name="day_to_day" class="form-control w-100" value="{{ $contactUs->day_to_day }}" id="day_to_day">
+                                        <input type="text" name="day_to_day" class="form-control w-100 @error ('day_to_day') is-invalid @enderror" value="{{ old('day_to_day', $contactUs->day_to_day ?? '') }}" id="day_to_day">
+                                        @error('day_to_day')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="time_to_time" class="form-label">Time to time (__:__AM/PM - __:__AM/PM) <span class="text-danger">*</span></label>
-                                        <input type="text" name="time_to_time" class="form-control w-100 w-100" value="{{ $contactUs->time_to_time }}" id="time_to_time">
+                                        <input type="text" name="time_to_time" class="form-control w-100 @error ('time_to_time') is-invalid @enderror" value="{{ old('time_to_time', $contactUs->time_to_time ?? '') }}" id="time_to_time">
+                                        @error('time_to_time')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="tnt" class="form-label">TNT <span class="text-danger">*</span></label>
-                                        <input type="number" name="tnt" class="form-control w-100" value="{{ $contactUs->tnt }}" id="tnt">
+                                        <input type="number" name="tnt" class="form-control w-100 @error ('tnt') is-invalid @enderror" value="{{ old('tnt', $contactUs->tnt ?? '' ) }}" id="tnt">
+                                        @error('tnt')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="mobile" class="form-label">Mobile <span class="text-danger">*</span></label>
-                                        <input type="number" name="mobile" class="form-control w-100" value="{{ $contactUs->mobile }}" id="mobile">
+                                        <input type="number" name="mobile" class="form-control w-100 @error ('mobile') is-invalid @enderror" value="{{ old('mobile', $contactUs->mobile ?? '') }}" id="mobile">
+                                        @error('mobile')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="modal-footer">

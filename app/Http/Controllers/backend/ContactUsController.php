@@ -17,6 +17,14 @@ class ContactUsController extends Controller
     }
 
     public static function store(Request $request){
+        $request->validate([
+            'address'       => 'required',
+            'email'         => 'required|email',
+            'day_to_day'    => 'required',
+            'time_to_time'  => 'required',
+            'tnt'           => 'required|numeric|min:0',
+            'mobile'        => 'required',
+        ]);
         ContactUs::storeContactUs($request);
         Swal::success([
             'title' => 'Contact us details added successfully',
@@ -26,6 +34,14 @@ class ContactUsController extends Controller
     }
 
     public function update(Request $request){
+        $request->validate([
+            'address'       => 'required',
+            'email'         => 'required|email',
+            'day_to_day'    => 'required',
+            'time_to_time'  => 'required',
+            'tnt'           => 'required|numeric|min:0',
+            'mobile'        => 'required',
+        ]);
         ContactUs::updateContactUs($request);
         Swal::success([
             'title' => 'Contact us details updated successfully.',
