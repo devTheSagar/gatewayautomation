@@ -35,11 +35,11 @@
                         <div class="card-header border-bottom d-flex">
                             <h3 class="card-title me-3">Carousel Information</h3>
                             <div class="ms-auto">
-                                <a href="{{ route('admin.edit.carousel', $carousel->id) }}" class="btn btn-success">
-                                    <i class="fa fa-edit"></i> Edit Record
-                                </a>
                                 <a href="{{ route('admin.add.carousel') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add New
+                                </a>
+                                <a href="{{ route('admin.edit.carousel', $carousel->id) }}" class="btn btn-success">
+                                    <i class="fa fa-edit"></i> Edit Record
                                 </a>
                                 <a href="{{ route('admin.all.carousel') }}" class="btn btn-secondary">
                                     <i class="fa fa-list"></i> All Carousels

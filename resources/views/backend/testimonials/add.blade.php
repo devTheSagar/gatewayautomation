@@ -35,8 +35,8 @@
                     <div class="card">
                         <div class="card-header border-bottom">
                             <h3 class="card-title">Testimonial form</h3>
-                            <a href="{{ route('admin.all.testimonial') }}" class="btn btn-success ms-auto">
-                                <i class="fa fa-eye"></i> See All
+                            <a href="{{ route('admin.all.testimonial') }}" class="btn btn-secondary ms-auto">
+                                <i class="fa fa-list"></i> All Testimonials
                             </a>
                         </div>
                         <div class="card-body">

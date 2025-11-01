@@ -11,9 +11,17 @@
             <div class="page-header">
                 <h1 class="page-title">Edit Service</h1>
                 <div class="ms-auto">
-                    <a href="{{ route('admin.all.service') }}" class="btn btn-secondary">
-                        <i class="fa fa-arrow-left"></i> Back
-                    </a>
+                    <div class="ms-auto">
+                        <a href="{{ route('admin.add.service') }}" class="btn btn-primary">
+                            <i class="fa fa-plus"></i> Add New
+                        </a>
+                        <a href="{{ route('service.view', $service->id) }}" class="btn btn-success">
+                            <i class="fa fa-eye"></i> View Service
+                        </a>
+                        <a href="{{ route('admin.all.service') }}" class="btn btn-secondary">
+                            <i class="fa fa-list"></i> All Service
+                        </a>
+                    </div>
                 </div>
             </div>
 

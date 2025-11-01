@@ -23,7 +23,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
                     <li class="breadcrumb-item" aria-current="page">Success stories</li>
-                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Success stories</li>
                 </ol>
             </div>
         </div>
@@ -39,8 +39,11 @@
                             <a href="{{ route('admin.add.success-stories') }}" class="btn btn-primary">
                                 <i class="fa fa-plus"></i> Add New
                             </a>
+                            <a href="{{ route('admin.view.success-stories', $successStory->id) }}" class="btn btn-success">
+                                <i class="fa fa-eye"></i> View
+                            </a>
                             <a href="{{ route('admin.all.success-stories') }}" class="btn btn-secondary">
-                                <i class="fa fa-arrow-left"></i> Go Back
+                                <i class="fa fa-list"></i> All Stories
                             </a>
                         </div>
                     </div>
@@ -61,7 +64,7 @@
                             <!-- heading  -->
                             <div class="form-group">
                                 <label for="heading" class="form-label">Heading <span class="text-danger">*</span></label>
-                                <textarea class="form-control @error('heading') is-invalid @enderror" name="heading" maxlength="225" id="heading" rows="3">{{ $successStory->heading }}</textarea>
+                                <textarea class="form-control @error('heading') is-invalid @enderror" name="heading" maxlength="225" id="heading" rows="3">{{ old('heading', $successStory->heading ?? '') }}</textarea>
                                 @error('heading')
                                     <span class="heading">{{ $message }}</span>
                                 @enderror
@@ -69,7 +72,7 @@
                             <!-- link  -->
                             <div class="form-group">
                                 <label for="content" class="form-label">Content <span class="text-danger">*</span></label>
-                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" maxlength="225" id="content" rows="3">{{ $successStory->content }}</textarea>
+                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" maxlength="225" id="content" rows="3">{{ old('content', $successStory->content ?? '') }}</textarea>
                                 @error('content')
                                     <span class="content">{{ $message }}</span>
                                 @enderror

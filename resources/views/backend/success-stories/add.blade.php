@@ -23,7 +23,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
                     <li class="breadcrumb-item" aria-current="page">Success stories</li>
-                    <li class="breadcrumb-item active" aria-current="page">Add</li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Success stories</li>
                 </ol>
             </div>
         </div>
@@ -35,8 +35,8 @@
                 <div class="card">
                     <div class="card-header border-bottom d-flex">
                         <h3 class="card-title me-3">Success story form</h3>
-                        <a href="{{ route('admin.all.success-stories') }}" class="btn btn-success ms-auto">
-                            <i class="fa fa-eye"></i> See All
+                        <a href="{{ route('admin.all.success-stories') }}" class="btn btn-secondary ms-auto">
+                            <i class="fa fa-list"></i> All Stories
                         </a>
                     </div>
                     <div class="card-body">

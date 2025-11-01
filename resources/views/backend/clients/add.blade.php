@@ -35,7 +35,7 @@
                     <div class="card">
                         <div class="card-header border-bottom">
                             <h3 class="card-title">Clinet form</h3>
-                            <a href="{{ route('admin.all.client') }}" class="btn btn-success ms-auto">
+                            <a href="{{ route('admin.all.client') }}" class="btn btn-secondary ms-auto">
                                 <i class="fa fa-list"></i> All Clients
                             </a>
                         </div>

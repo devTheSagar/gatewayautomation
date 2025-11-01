@@ -39,7 +39,10 @@
                                 <a href="{{ route('admin.add.client') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add Client
                                 </a>
-                                <a href="{{ route('admin.all.client') }}" class="btn btn-success">
+                                <a href="{{ route('admin.view.client', $client->id) }}" class="btn btn-success">
+                                    <i class="fa fa-eye"></i> View Client
+                                </a>
+                                <a href="{{ route('admin.all.client') }}" class="btn btn-secondary">
                                     <i class="fa fa-list"></i> All Clients
                                 </a>
                             </div>

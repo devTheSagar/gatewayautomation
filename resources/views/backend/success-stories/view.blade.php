@@ -37,8 +37,11 @@
                                 <a href="{{ route('admin.add.success-stories') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add New
                                 </a>
+                                <a href="{{ route('admin.edit.success-stories', $successStory->id) }}" class="btn btn-success">
+                                    <i class="fa fa-edit"></i> Edit Record
+                                </a>
                                 <a href="{{ route('admin.all.success-stories') }}" class="btn btn-secondary">
-                                    <i class="fa fa-arrow-left"></i> Go Back
+                                    <i class="fa fa-list"></i> All Stories
                                 </a>
                             </div>
                         </div>
@@ -76,9 +79,6 @@
                                     <td>{{ $successStory->updated_at->timezone('Asia/Dhaka')->format('d M Y, h:i A') }}</td>
                                 </tr>
                             </table>
-                            <a href="{{ route('admin.all.success-stories') }}" class="btn btn-sm btn-primary">
-                                <i class="fa fa-arrow-left"></i> Go Back
-                            </a>
                         </div>
                     </div>
                 </div>

@@ -107,7 +107,7 @@
                         <form action="{{ route('admin.add.gallery') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header">
-                                <h6 class="modal-title">Add content</h6>
+                                <h6 class="modal-title">Add Image</h6>
                                 <button aria-label="Close" type="button" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
@@ -121,7 +121,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Save</button>
-                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>

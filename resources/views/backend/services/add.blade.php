@@ -35,8 +35,8 @@
                     <div class="card">
                         <div class="card-header border-bottom d-flex">
                             <h3 class="card-title">Service form</h3>
-                            <a href="{{ route('admin.all.service') }}" class="btn btn-success ms-auto">
-                                <i class="fa fa-eye"></i> See All
+                            <a href="{{ route('admin.all.service') }}" class="btn btn-secondary ms-auto">
+                                <i class="fa fa-list"></i> All Services
                             </a>
                         </div>
                         <div class="card-body">

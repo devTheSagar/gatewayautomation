@@ -34,11 +34,11 @@
                         <div class="card-header border-bottom d-flex">
                             <h3 class="card-title me-3">Client Information</h3>
                             <div class="ms-auto">
-                                <a href="#" class="btn btn-success">
-                                    <i class="fa fa-edit"></i> Edit Record
-                                </a>
                                 <a href="{{ route('admin.add.client') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add New
+                                </a>
+                                <a href="{{ route('admin.edit.client', $client->id) }}" class="btn btn-success">
+                                    <i class="fa fa-edit"></i> Edit Record
                                 </a>
                                 <a href="{{ route('admin.all.client') }}" class="btn btn-secondary">
                                     <i class="fa fa-list"></i> All Clients

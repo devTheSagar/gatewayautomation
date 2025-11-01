@@ -222,7 +222,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Save</button>
-                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>

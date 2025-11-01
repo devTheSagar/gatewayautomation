@@ -37,7 +37,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-3">
-                                <a class="btn btn-primary" data-bs-target="#modalToggle" data-bs-toggle="modal" href="javascript:void(0)"><i class="bi bi-plus-lg"></i>Add Brochure</a>
+                                <a class="btn btn-primary" data-bs-target="#modalToggle" data-bs-toggle="modal" href="javascript:void(0)"><i class="fa fa-upload"></i> Upload Brochure</a>
                             </div>
                             <p>Uploading new brochure will replace the old one.</p>
                             <div class="table-responsive">
@@ -81,7 +81,7 @@
                             @csrf
                             <div class="modal-header">
                                 <h6 class="modal-title">Upload Brochure</h6>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button aria-label="Close" type="button" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                             </div>
 
                             <div class="modal-body">
@@ -93,7 +93,7 @@
 
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Upload</button>
-                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             </div>
 
                         </form>

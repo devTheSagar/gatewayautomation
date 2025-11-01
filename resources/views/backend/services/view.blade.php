@@ -34,11 +34,11 @@
                         <div class="card-header border-bottom d-flex">
                             <h3 class="card-title me-3">Service Information</h3>
                             <div class="ms-auto">
-                                <a href="{{ route('admin.edit.service', $service->id) }}" class="btn btn-success">
-                                    <i class="fa fa-edit"></i> Edit Record
-                                </a>
                                 <a href="{{ route('admin.add.service') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add New
+                                </a>
+                                <a href="{{ route('admin.edit.service', $service->id) }}" class="btn btn-success">
+                                    <i class="fa fa-edit"></i> Edit Record
                                 </a>
                                 <a href="{{ route('admin.all.service') }}" class="btn btn-secondary">
                                     <i class="fa fa-list"></i> All Service

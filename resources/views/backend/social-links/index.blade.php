@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('title')
-  Contact Us
+  Social Links
 @endsection
 
 @section('content')
@@ -16,13 +16,12 @@
             <!-- PAGE-HEADER -->
             <div class="page-header">
                 <div>
-                    <h1 class="page-title">Contact Us</h1>
+                    <h1 class="page-title">Social Links</h1>
                 </div>
                 <div class="ms-auto pageheader-btn">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Contact Us</li>
-                        <li class="breadcrumb-item active" aria-current="page">Manage Contact Us</li>
+                        <li class="breadcrumb-item active" aria-current="page">Social Links</li>
                     </ol>
                 </div>
             </div>
@@ -33,19 +32,19 @@
                 <div class="col-lg-12">
                     <div class="card custom-card">
                         <div class="card-header border-bottom">
-                            <h3 class="card-title">Contact Us Table</h3>
+                            <h3 class="card-title">Social Links Table</h3>
                         </div>
                         <div class="card-body">
 
                             <div class="mb-3">
                                 @if($socialLink)
-                                    <button class="m-1 btn btn-warning" data-bs-toggle="modal" data-bs-target="#editContent">Edit Content</button>
+                                    <button class="m-1 btn btn-success" data-bs-toggle="modal" data-bs-target="#editContent"><i class="fa fa-edit"></i>Edit Links</button>
                                     <form action="{{ route('admin.delete.social-links') }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this content?');">
                                         @csrf
-                                        <button type="submit" class="m-1 btn btn-danger">Delete Content</button>
+                                        <button type="submit" class="m-1 btn btn-danger"><i class="fa fa-trash"></i>Delete Links</button>
                                     </form>
                                 @else
-                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContent" href="javascript:void(0)">Add Content</a>
+                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContent" href="javascript:void(0)"><i class="fa fa-plus"></i>Add Content</a>
                                 @endif
                             </div>
 
@@ -85,7 +84,7 @@
                         <form action="{{ route('admin.store.social-links') }}" method="POST">
                             @csrf
                             <div class="modal-header">
-                                <h6 class="modal-title">Add contact us</h6>
+                                <h6 class="modal-title">Add Social Links</h6>
                                 <button aria-label="Close" type="button" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
@@ -123,7 +122,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Save</button>
-                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>

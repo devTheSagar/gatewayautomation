@@ -37,8 +37,11 @@
                                 <a href="{{ route('admin.add.testimonial') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Add New
                                 </a>
+                                <a href="{{ route('admin.edit.testimonial', $testimonial->id) }}" class="btn btn-success">
+                                    <i class="fa fa-edit"></i> Edit Testimonial
+                                </a>
                                 <a href="{{ route('admin.all.testimonial') }}" class="btn btn-secondary">
-                                    <i class="fa fa-arrow-left"></i> Go Back
+                                    <i class="fa fa-arrow-list"></i> All Testimonials
                                 </a>
                             </div>
                         </div>

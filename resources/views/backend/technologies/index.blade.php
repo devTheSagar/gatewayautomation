@@ -106,7 +106,7 @@
                             <input type="hidden" name="id" id="edit_id" value="{{ old('id') }}">
                             <div class="modal-header">
                                 <h6 class="modal-title">Edit Technologies</h6>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <div class="row mb-4">
@@ -128,7 +128,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
