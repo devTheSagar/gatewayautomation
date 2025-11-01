@@ -6,13 +6,6 @@
 
 @section('content')
 
-
-
-
-
-
-
-
     <!--app-content open-->
     <div class="app-content main-content mt-0">
         <div class="side-app">
@@ -29,8 +22,7 @@
                     <div class="ms-auto pageheader-btn">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Carousel</li>
-                            <li class="breadcrumb-item active" aria-current="page">Add Carousel</li>
+                            <li class="breadcrumb-item active" aria-current="page">All Messages</li>
                         </ol>
                     </div>
                 </div>
@@ -40,8 +32,13 @@
                 <div class="row row-sm">
                     <div class="col-lg-12">
                         <div class="card custom-card">
-                            <div class="card-header border-bottom">
+                            <div class="card-header border-bottom d-flex">
                                 <h3 class="card-title">Bordered Table</h3>
+                                <div class="ms-auto">
+                                    <a href="{{ route('admin.messages') }}" class="btn btn-secondary">
+                                        <i class="fa fa-list"></i> All Messages
+                                    </a>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -69,9 +66,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <a href="{{ route('admin.messages') }}" class="btn btn-primary mt-3">
-                                        Back to Messages
-                                    </a>
+                                    
                                 </div>
                             </div>
                         </div>

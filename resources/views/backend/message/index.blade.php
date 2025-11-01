@@ -98,6 +98,7 @@
                                                     {{-- bulk delete button  --}}
                                                     <button type="submit" class="btn btn-danger mt-2"
                                                             onclick="return confirm('Are you sure you want to delete selected messages?');">
+                                                            <i class="fa fa-trash"></i>
                                                             Delete Selected
                                                     </button>
                                                 </div>
