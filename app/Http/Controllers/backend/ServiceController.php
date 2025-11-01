@@ -14,6 +14,12 @@ class ServiceController extends Controller
     }
 
     public static function store(Request $request){
+        $request->validate([
+            'service_name'  => 'required',
+            'service_logo'  => 'required',
+            'sections'      => 'nullable|array',
+            'conclusion'    => 'nullable|string'
+        ]);
         Service::addService($request);
         Swal::success([
             'title' => 'Service added successfully',
@@ -59,6 +65,12 @@ class ServiceController extends Controller
     // app/Http/Controllers/backend/ServiceController.php
 
     public static function update(Request $request, String $id){
+        $request->validate([
+            'service_name'  => 'required',
+            'service_logo'  => 'required',
+            'sections'      => 'nullable|array',
+            'conclusion'    => 'nullable|string'
+        ]);
         // Update service using the model method
         Service::updateService($request, $id);
         // Success message (SweetAlert)
