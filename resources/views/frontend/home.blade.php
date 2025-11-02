@@ -97,7 +97,7 @@
                                 <p class="nunito-sans-400"
                                 style="font-size: 18px; line-height: 1.8; color: #464646;"
                                 data-aos="fade-right" data-aos-delay="300">
-                                    {{ $content->content ?? '' }}
+                                    {!! nl2br(e($content->content)) !!}
                                 </p>
 
                                 <p class="nunito-sans-400"

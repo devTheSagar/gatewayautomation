@@ -34,6 +34,10 @@
         <!-- STICKY JS -->
         <script src="{{ asset('backend/assets/js/sticky.js') }}"></script>
 
+        <!-- INTERNAL Summernote Editor js -->
+		<script src="{{ asset('backend/assets/plugins/summernote-editor/summernote1.js') }}"></script>
+		<script src="{{ asset('backend/assets/js/summernote.js') }}"></script>
+
         
         <!-- APEXCHART JS -->
         <script src="{{ asset('backend/assets/js/apexcharts.js') }}"></script>
