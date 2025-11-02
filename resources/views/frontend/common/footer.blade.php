@@ -15,7 +15,7 @@
                                 {{-- brochure download button  --}}
                                 <div class="d-flex align-items-center mt-3">
                                     <i class="bi bi-download me-2" aria-hidden="true"></i>
-                                    <a href="{{ $brochure->brochure }}" class="footer-link m-0" download="Gateway_Brochure.pdf">
+                                    <a href="{{ $brochure->brochure ?? '' }}" class="footer-link m-0" download="Gateway_Brochure.pdf">
                                         <i><b>Download Brochure</b></i>
                                     </a>
                                 </div>
