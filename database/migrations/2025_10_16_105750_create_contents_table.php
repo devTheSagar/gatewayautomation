@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->text('heading');
-            $table->text('sub_heading');
-            $table->longText('content');
+            $table->text('heading')->nullable(false);
+            $table->text('sub_heading')->nullable(false);
+            $table->longText('content')->nullable(false);
             $table->timestamps();
         });
     }

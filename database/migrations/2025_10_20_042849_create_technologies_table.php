@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('technologies', function (Blueprint $table) {
             $table->id();
             $table->text('tech_logo')->nullable(false);
-            $table->string('alt_txt')->nullable(false);
+            $table->text('alt_txt')->nullable(false);
             $table->tinyInteger('status')->default(1)->comment('0=inactive, 1=active');
             $table->timestamps();
         });

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('service_name')->nullable(false);
-            $table->string('service_logo')->nullable(false);
+            $table->text('service_name')->nullable(false);
+            $table->text('service_logo')->nullable(false);
             $table->json('sections')->nullable();
             $table->text('conclusion')->nullable();
             $table->tinyInteger('status')->default(1)->comment('0=inactive, 1=active');
