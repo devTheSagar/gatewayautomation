@@ -29,7 +29,7 @@ class HomeController extends Controller
         $brochure = Brochure::first();
         $socialLink = SocialLink::first();
         $contactUs = ContactUs::first();
-        $services = Service::where('status', 1)->latest()->get();
+        $services = Service::where('status', 1)->orderBy('created_at', 'asc')->get();
 
         return view('frontend.home', [
             'carousels'         => $carousels,
