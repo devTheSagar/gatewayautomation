@@ -62,7 +62,7 @@
                             <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>TNT:</strong> +{{ $contactUs->tnt ?? '' }}</p>
                             <p class="text-muted mb-2 nunito-sans-500" style="font-size: 1rem;"><strong>Hotline:</strong> +{{ $contactUs->mobile ?? '' }}</p>
                             <p class="text-muted mb-3 contact-address" style="font-size: 0.95rem; line-height: 1.6;">
-                                {{ $contactUs->address ?? '' }}
+                                <strong>Address:</strong> {{ $contactUs->address ?? '' }}
                             </p>
 
                             <!-- BASIS Member Section -->
