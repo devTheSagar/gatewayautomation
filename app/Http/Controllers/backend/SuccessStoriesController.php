@@ -19,7 +19,7 @@ class SuccessStoriesController extends Controller
         $request->validate([
             'image'     => 'required|mimes:png,jpg,jpeg,webp',
             'heading'   => 'required|max:250',
-            'content'   => 'required|max:600'
+            'content'   => 'required|max:1200'
         ]);
         SuccessStories::store($request);
         Swal::success([
@@ -71,7 +71,7 @@ class SuccessStoriesController extends Controller
         $request->validate([
             'image'     => 'nullable|mimes:png,jpg,jpeg,webp',
             'heading'   => 'required|max:250',
-            'content'   => 'required|max:600'
+            'content'   => 'required|max:1200'
         ]);
         SuccessStories::updateSuccessStory($request, $id);
         Swal::success([

@@ -63,7 +63,7 @@
                             <!-- link  -->
                             <div class="form-group">
                                 <label for="content" class="form-label">Content <span class="text-danger">*</span></label>
-                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" maxlength="600" id="content" rows="3">{{ old('content') }}</textarea>
+                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" maxlength="1200" id="content" rows="3">{{ old('content') }}</textarea>
                                 @error('content')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

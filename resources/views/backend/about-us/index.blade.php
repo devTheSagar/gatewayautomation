@@ -214,7 +214,7 @@
                                 <!-- story  -->
                                 <div class="form-group">
                                     <label for="story" class="form-label">Story</label>
-                                    <textarea class="form-control @error('story') is-invalid @enderror" name="story" maxlength="2000" id="story" rows="5">{{ old('story') }}</textarea>
+                                    <textarea class="form-control @error('story') is-invalid @enderror" name="story" id="story" rows="5">{{ old('story') }}</textarea>
                                     @error('story')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -297,7 +297,7 @@
                                     <!-- Story -->
                                     <div class="form-group mt-4">
                                         <label class="form-label">Story</label>
-                                        <textarea class="form-control @error('story') is-invalid @enderror" name="story" maxlength="2000" rows="5">{{ old('story', $aboutUs->story) }}</textarea>
+                                        <textarea class="form-control @error('story') is-invalid @enderror" name="story" rows="5">{{ old('story', $aboutUs->story) }}</textarea>
                                         @error('story')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

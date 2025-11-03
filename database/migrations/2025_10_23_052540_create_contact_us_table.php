@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email')->nullable(false);
             $table->string('day_to_day')->nullable(false);
             $table->string('time_to_time')->nullable(false);
-            $table->integer('tnt')->nullable(false);
-            $table->integer('mobile')->nullable(false);
+            $table->string('tnt')->nullable(false);
+            $table->string('mobile')->nullable(false);
             $table->timestamps();
         });
     }

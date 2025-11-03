@@ -35,7 +35,8 @@
                                 <div class="icon-content">
                                     <h3 class="h5 nunito-sans-700" style="color: rgb(34, 36, 39)">Our Mission</h3>
                                     <p class="nunito-sans-300" style="font-size: 1.1rem">
-                                        {{ $aboutUs->mission ?? ''}}
+                                        {{-- {{ $aboutUs->mission ?? ''}} --}}
+                                        {!! nl2br(e($aboutUs->mission ?? '')) !!}
                                     </p>
                                 </div>
                             </li>
@@ -46,7 +47,8 @@
                                 <div class="icon-content">
                                     <h3 class="h5 nunito-sans-700" style="color: rgb(34, 36, 39)">Our Vision</h3>
                                     <p class="nunito-sans-300"style="font-size: 1.1rem">
-                                        {{ $aboutUs->vision ?? ''}}
+                                        {{-- {{ $aboutUs->vision ?? ''}} --}}
+                                        {!! nl2br(e($aboutUs->vision ?? '')) !!}
                                     </p>
                                 </div>
                             </li>
@@ -102,7 +104,8 @@
                             <h2 class="nunito-sans-700" data-aos="fade-up" data-aos-delay="100" style="color: rgb(34, 36, 39)">Our Story</h2>
 
                             <p class="nunito-sans-300" style="font-size: 1.1rem" data-aos="fade-left" data-aos-delay="100">
-                                {!! $aboutUs->story ?? '' !!}
+                                {{-- {!! $aboutUs->story ?? '' !!} --}}
+                                {!! nl2br(e($aboutUs->story ?? '')) !!}
                             </p>
                         </div>
                     </div>
