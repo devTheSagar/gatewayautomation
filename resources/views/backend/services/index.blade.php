@@ -28,8 +28,8 @@
                                 <th>SL</th>
                                 <th>Service Name</th>
                                 <th>logo</th>
-                                <th>Content Sections</th>
-                                <th>Conclusion</th>
+                                {{-- <th>Content Sections</th>
+                                <th>Conclusion</th> --}}
                                 <th>Status</th>
                                 <th width="140">Action</th>
                             </tr>
@@ -40,8 +40,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $service->service_name }}</td>
                                 <td>{!! $service->service_logo !!}</td>
-                                <td>{{ count($service->sections ?? []) }} Sections</td>
-                                <td>{{ Str::limit($service->conclusion, 30) }}</td>
+                                {{-- <td>{{ count($service->sections ?? []) }} Sections</td>
+                                <td>{{ Str::limit($service->conclusion, 30) }}</td> --}}
 
                                 {{-- active stataus  --}}
                                 <td class="text-center">

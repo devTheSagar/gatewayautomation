@@ -204,7 +204,7 @@
                 <div class="row justify-content-center text-center mb-5">
                     <div class="col-lg-8">
                         <h2 class="roboto-mono-heading" data-aos="fade-up" data-aos-delay="100">Success Stories</h2>
-                        <h3 class="roboto-mono-subheading" data-aos="fade-up" data-aos-delay="200">See how our ERP solutions have transformed businesses across different industries.</h3>
+                        <h3 class="roboto-mono-subheading" data-aos="fade-up" data-aos-delay="200">Discover how our ERP solutions are transforming businesses across industries.</h3>
                     </div>
                 </div>
 
