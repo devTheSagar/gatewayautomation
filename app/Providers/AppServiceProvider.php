@@ -40,8 +40,10 @@ class AppServiceProvider extends ServiceProvider
 
         if (Schema::hasTable('services')) {
             View::composer('frontend.*', function ($view) {
-                $view->with('allServices', Service::all());
+                // fetch only active services and sort by `order`
+                $view->with('allServices', Service::where('status', 1)->orderBy('order', 'asc')->get());
             });
         }
+
     }
 }

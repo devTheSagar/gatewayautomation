@@ -13,7 +13,8 @@ class Service extends Model
         'service_logo',
         'sections',
         'conclusion',
-        'slug'
+        'slug',
+        'order'
     ];
     
 
@@ -84,6 +85,10 @@ class Service extends Model
         }
 
         self::$service->sections = $sections; // automatically cast to JSON
+
+        $maxOrder = Service::max('order');
+        self::$service->order = $maxOrder + 1;
+
         self::$service->save();
 
         return self::$service;

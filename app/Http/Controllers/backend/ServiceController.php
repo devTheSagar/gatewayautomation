@@ -9,11 +9,13 @@ use SweetAlert2\Laravel\Swal;
 
 class ServiceController extends Controller
 {
-    public static function add(){
+    public static function add()
+    {
         return view('backend.services.add');
     }
 
-    public static function store(Request $request){
+    public static function store(Request $request)
+    {
         $request->validate([
             'service_name'  => 'required',
             'service_logo'  => 'required',
@@ -28,15 +30,17 @@ class ServiceController extends Controller
         return back();
     }
 
-    public static function index(){
-        $services = Service::orderBy('created_at', 'desc')->get();
+    public static function index()
+    {
+        $services = Service::orderBy('order', 'asc')->get();
         return view('backend.services.index', [
             'services' => $services
         ]);
     }
 
     // store active status to db 
-    public function changeStatus(Request $request, $id){
+    public function changeStatus(Request $request, $id)
+    {
         $service = Service::findOrFail($id);
         $service->status = $request->status;  // 1 or 0
         $service->save();
@@ -47,15 +51,17 @@ class ServiceController extends Controller
             'status' => $service->status
         ]);
     }
-    
-    public static function show(String $id){
+
+    public static function show(String $id)
+    {
         $service = Service::findOrFail($id);
         return view('backend.services.view', [
             'service' => $service
         ]);
     }
 
-    public static function edit(String $id){
+    public static function edit(String $id)
+    {
         $service = Service::findOrFail($id);
         return view('backend.services.edit', [
             'service' => $service
@@ -64,7 +70,8 @@ class ServiceController extends Controller
 
     // app/Http/Controllers/backend/ServiceController.php
 
-    public static function update(Request $request, String $id){
+    public static function update(Request $request, String $id)
+    {
         $request->validate([
             'service_name'  => 'required',
             'service_logo'  => 'required',
@@ -97,4 +104,31 @@ class ServiceController extends Controller
     }
 
 
+    // for move the eitire row 
+    public function swapOrder(Request $request){
+        $service = Service::find($request->id);
+        if (!$service) return response()->json(['success' => false]);
+
+        $direction = $request->direction;
+
+        if ($direction === 'up') {
+            $swapWith = Service::where('order', '<', $service->order)
+                ->orderBy('order', 'desc')
+                ->first();
+        } else {
+            $swapWith = Service::where('order', '>', $service->order)
+                ->orderBy('order', 'asc')
+                ->first();
+        }
+
+        if ($swapWith) {
+            $temp = $service->order;
+            $service->order = $swapWith->order;
+            $swapWith->order = $temp;
+            $service->save();
+            $swapWith->save();
+        }
+
+        return response()->json(['success' => true]);
+    }
 }

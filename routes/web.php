@@ -232,5 +232,7 @@ Route::middleware('auth:admin')->group(function () {
     // Update service (form submission)
     Route::put('/admin/update/service/{id}', [BackendServiceController::class, 'update'])->name('admin.update.service');
     Route::delete('/admin/delete/service/{id}', [BackendServiceController::class, 'destroy'])->name('admin.delete.service');
+    // for up down swapping of service 
+    Route::post('/admin/service/swap-order', [BackendServiceController::class, 'swapOrder'])->name('admin.service.swapOrder');
 
 });

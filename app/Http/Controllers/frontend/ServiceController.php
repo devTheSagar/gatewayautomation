@@ -14,8 +14,14 @@ class ServiceController extends Controller
                         ->where('status', 1)  // only active
                         ->firstOrFail();      // return single model or 404
 
+                        // All active services for dropdown / menu, ordered
+        $allServices = Service::where('status', 1)
+                            ->orderBy('order', 'asc')
+                            ->get();
+
         return view('frontend.services.index', [
-            'service' => $service
+            'service' => $service,
+            'allServices' => $allServices
         ]);
     }
 

@@ -61,14 +61,21 @@
                                 </td>
 
                                 <td class="text-center">
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-success btn-sm move-service" data-id="{{ $service->id }}" data-direction="up">
+                                            <i class="fa fa-arrow-up"></i>
+                                        </button>
+                                        <button class="btn btn-outline-success btn-sm move-service" data-id="{{ $service->id }}" data-direction="down">
+                                            <i class="fa fa-arrow-down"></i>
+                                        </button>
+                                    </div>
+
                                     <a href="{{ route('admin.show.service', $service->id) }}" class="btn btn-outline-primary btn-sm">
                                         <i class="fa fa-eye"></i>
                                     </a>
-
                                     <a href="{{ route('admin.edit.service', $service->id) }}" class="btn btn-outline-secondary btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
-
                                     <form action="{{ route('admin.delete.service', $service->id) }}" method="POST" class="d-inline">
                                         @csrf @method('DELETE')
                                         <button class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this service?')">
@@ -76,6 +83,7 @@
                                         </button>
                                     </form>
                                 </td>
+
 
                             </tr>
                         @endforeach
@@ -124,3 +132,32 @@
         });
     </script>
 @endpush
+
+@push('scripts')
+    <script>
+        document.addEventListener('click', function(e) {
+            if(e.target.closest('.move-service')) {
+                const button = e.target.closest('.move-service');
+                const id = button.getAttribute('data-id');
+                const direction = button.getAttribute('data-direction');
+
+                fetch(`{{ route('admin.service.swapOrder') }}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id, direction })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    }
+                })
+                .catch(err => console.error(err));
+            }
+        });
+    </script>
+@endpush
+
